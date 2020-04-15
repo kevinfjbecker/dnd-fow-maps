@@ -25,6 +25,10 @@
         padding-left: 140px;
         padding-top: 0px;
     }
+
+    .fog {
+        filter: brightness(0.05);
+    }
 </style>
 </head>
 <body>
@@ -70,6 +74,13 @@
             'preserveAspectRatio': 'none',
             'class': 'fog', x: 0, y: 0,
             height: '100%', width: '100%'
+        });
+
+    var fogMap = background.append("rect")
+        .attr({ 
+            width: '100%',
+            heith: '100%',
+            opacity: 0.95
         });
 
     // full version

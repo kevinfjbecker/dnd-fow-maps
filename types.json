@@ -1,0 +1,15 @@
+{
+    "roll": {
+        "dice": [],
+        "results": [],
+        "modifier": 0
+    },
+    "character": {
+        "name": "",
+        "initiativeModifier": 0,
+        "hitPoints": 0,
+        "armorClass": 18,
+        "attackModifier": 0,
+        "damage": "dX+M"
+    }
+}

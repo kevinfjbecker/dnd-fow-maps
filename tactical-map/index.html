@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Battle Map</title>
+  <style>
+    .token {
+      position: absolute;
+      background-size: contain;
+      border-radius: 50%;
+
+    }
+
+    .friendly {
+      border: 2px solid lightsteelblue;
+    }
+
+    .hostile {
+      border: 2px solid crimson;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="game-board">
+    <img src="tactical-map.png" />
+  </div>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+
+    const squarWidth = 42;
+
+    const combatants = [
+      {
+        "name": "Belimore",
+        "alignment": "friendly",
+        "imgSrc": "belimore.jpg",
+        "x": 260,
+        "y": 380
+      },
+      {
+        "name": "Cire",
+        "alignment": "friendly",
+        "imgSrc": "cire.jpg",
+        "x": 410,
+        "y": 383
+      },
+      {
+        "name": "Rew",
+        "alignment": "friendly",
+        "imgSrc": "rew.jpg",
+        "x": 358,
+        "y": 383
+      },
+      {
+        "name": "Speeder",
+        "alignment": "friendly",
+        "imgSrc": "speeder.jpg",
+        "x": 309,
+        "y": 383
+      },
+      {
+        "name": "GoblinOne",
+        "alignment": "hostile",
+        "imgSrc": "goblin.jpg",
+        "x": 407,
+        "y": 733
+      },
+      {
+        "name": "GoblinTwo",
+        "alignment": "hostile",
+        "imgSrc": "goblin.jpg",
+        "x": 314,
+        "y": 734
+      },
+      {
+        "name": "GoblinThree",
+        "alignment": "hostile",
+        "imgSrc": "goblin.jpg",
+        "x": 265,
+        "y": 730
+      },
+      {
+        "name": "Bugbear",
+        "alignment": "hostile",
+        "imgSrc": "bugbear.jpg",
+        "x": 310,
+        "y": 485
+      },
+      {
+        "name": "Wolf",
+        "alignment": "hostile",
+        "imgSrc": "wolf.jpg",
+        "x": 262,
+        "y": 485
+      }
+    ];
+
+    const drag = () => {
+
+      function dragstarted(d) {
+        d3.select(this).raise().style('border-width', `${4}px`);
+      }
+
+      function dragged(d) {
+        d3.select(this)
+          .style("left", (d.x = d3.event.x) + 'px')
+          .style("top", (d.y = d3.event.y) + 'px');
+      }
+
+      function dragended(d) {
+        d3.select(this).style('border-width', `${2}px`);
+      }
+
+      return d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended);
+    }
+
+    const tokens = d3.select('#game-board').selectAll('.token')
+      .data(combatants)
+      .join('div')
+      .attr('class', d => `token ${d.alignment}`)
+      .style('background-image', d => `url(${d.imgSrc})`)
+      .style('width', `${squarWidth}px`)
+      .style('height', `${squarWidth}px`)
+      .style('left', d => d.x + 'px')
+      .style('top', d => d.y + 'px')
+      .call(drag())
+
+  </script>
+</body>
+
+</html>

@@ -21,12 +21,16 @@
     .hostile {
       border: 2px solid crimson;
     }
+
+    .boss {
+      border: 2px solid goldenrod;
+    }
   </style>
 </head>
 
 <body>
   <div id="game-board">
-    <img src="tactical-map.png" />
+    <img src="goblin-den.png" />
   </div>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -39,64 +43,78 @@
         "name": "Belimore",
         "alignment": "friendly",
         "imgSrc": "belimore.jpg",
-        "x": 260,
-        "y": 380
+        "x": 382,
+        "y": 47
       },
       {
         "name": "Cire",
         "alignment": "friendly",
         "imgSrc": "cire.jpg",
-        "x": 410,
-        "y": 383
+        "x": 350,
+        "y": 81
       },
       {
         "name": "Rew",
         "alignment": "friendly",
         "imgSrc": "rew.jpg",
-        "x": 358,
-        "y": 383
+        "x": 295,
+        "y": 171
       },
       {
         "name": "Speeder",
         "alignment": "friendly",
         "imgSrc": "speeder.jpg",
-        "x": 309,
-        "y": 383
+        "x": 316,
+        "y": 131
+      },
+      {
+        "name": "Sildar",
+        "alignment": "friendly",
+        "imgSrc": "sildar.jpg",
+        "x": 256,
+        "y": 301
       },
       {
         "name": "GoblinOne",
         "alignment": "hostile",
         "imgSrc": "goblin.jpg",
-        "x": 407,
-        "y": 733
+        "x": 154,
+        "y": 142
       },
       {
         "name": "GoblinTwo",
         "alignment": "hostile",
         "imgSrc": "goblin.jpg",
-        "x": 314,
-        "y": 734
+        "x": 101,
+        "y": 233
       },
       {
         "name": "GoblinThree",
         "alignment": "hostile",
         "imgSrc": "goblin.jpg",
-        "x": 265,
-        "y": 730
+        "x": 70,
+        "y": 200
       },
       {
-        "name": "Bugbear",
+        "name": "GoblinFour",
         "alignment": "hostile",
-        "imgSrc": "bugbear.jpg",
-        "x": 310,
-        "y": 485
+        "imgSrc": "goblin.jpg",
+        "x": 78,
+        "y": 139
       },
       {
-        "name": "Wolf",
+        "name": "GoblinFive",
         "alignment": "hostile",
-        "imgSrc": "wolf.jpg",
-        "x": 262,
-        "y": 485
+        "imgSrc": "goblin.jpg",
+        "x": 107,
+        "y": 107
+      },
+      {
+        "name": "Yeemik",
+        "alignment": "boss",
+        "imgSrc": "goblin.jpg",
+        "x": 190,
+        "y": 308
       }
     ];
 

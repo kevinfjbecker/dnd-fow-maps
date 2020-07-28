@@ -7,7 +7,7 @@
     <style>
         html,
         body {
-            background: #ffffff;
+            background: #fff;
             font-family: Helvetica, Arial, Tahoma, sans-serif;
             margin: 0;
             padding: 0;
@@ -54,9 +54,6 @@
         </defs>
     </svg>
 
-    <h3>Fog of War - Click to remove fog</h3>
-    <em>Note: this is not designed to be performant; this is just an example of how filters and masks can be used</em>
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js'></script>
 
     <script>
@@ -71,41 +68,28 @@
 
             // 1. Setup the mask
             // ----------------------------------
-            var maskGroup = svg.select('defs').append('mask')
+            var maskGroup = svg.append('mask')
                 .attr({ id: 'map-mask' });
 
-            // 2. Add map images
-            // ----------------------------------
-            // fog version - grayscaled and dark
-            // var fogMap = background.append("image")
-            //     .attr({ 
-            //         // TODO: use difference background image
-            //         'xlink:href': 'https://media-waterdeep.cursecdn.com/attachments/3/44/lmop5.jpg',
-            //         'preserveAspectRatio': 'none',
-            //         'class': 'fog', x: 0, y: 0,
-            //         height: '100%', width: '100%'
-            //     });
-
-            var fogMap = background.append("rect")
-                .attr({
-                    width: '100%',
-                    heith: '100%',
-                    opacity: 0.95
-                });
+            maskGroup.append('rect')
+                .attr('width', '100%')
+                .attr('height', '100%')
+                .style('fill', '#fff');
 
             // full version
             var visibleMap = background.append("image")
                 .attr({
-                    // TODO: use difference background image
+                    // TODO: use different background image
                     'xlink:href': 'https://media-waterdeep.cursecdn.com/attachments/3/44/lmop5.jpg',
                     'preserveAspectRatio': 'none',
                     'class': 'visibleArea', x: 0, y: 0,
                     height: '100%', width: '100%'
-                })
-                .style({
-                    // fill with full version of map
-                    fill: '#336699', mask: 'url(#map-mask)'
                 });
+
+            background.append('rect')
+                .attr('width', '100%')
+                .attr('height', '100%')
+                .attr('mask', 'url(#map-mask)');
 
             // 3. Add a starting circle to break the fog
             // ----------------------------------
@@ -134,7 +118,7 @@
                         height: 86
                     });
 
-                var newStyle = { fill: '#ffffff', opacity: 1 };
+                var newStyle = { fill: '#000', opacity: 1 };
                 masks.style(newStyle);
 
                 masks.exit().remove();
@@ -152,13 +136,6 @@
                 });
                 updateFog();
             });
-
-            wrapper.append('rect').attr({ x: 0, y: 0, width: 20, height: 20 }).style({ fill: '#00ff00' }).on('click', function () {
-                setTimeout(function () {
-                    vertices.pop(); vertices.pop();
-                    updateFog()
-                }, 200);
-            })
 
         })();
 

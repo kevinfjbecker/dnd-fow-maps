@@ -54,90 +54,80 @@
         </defs>
     </svg>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js'></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <script>
 
-        (function setupMap() {
-            // 0. setup groups
-            // ----------------------------------
-            var svg = d3.select('svg');
-            var wrapper = svg.append('g').attr({ 'class': 'map-wrapper' });
-            var background = wrapper.append('g').attr({ 'class': 'background' });
-            var characters = wrapper.append('g').attr({ 'class': 'characters' });
+        //(function setupMap() {
+        // 0. setup groups
+        // ----------------------------------
+        var svg = d3.select('svg');
+        var wrapper = svg.append('g').classed('map-wrapper', true);
+        var background = wrapper.append('g').classed('background', true);
+        var characters = wrapper.append('g').classed('characters', true);
 
-            // 1. Setup the mask
-            // ----------------------------------
-            var maskGroup = svg.append('mask')
-                .attr({ id: 'map-mask' });
+        // 1. Setup the mask
+        // ----------------------------------
+        var maskGroup = svg.append('mask')
+            .attr('id', 'map-mask');
 
-            maskGroup.append('rect')
-                .attr('width', '100%')
-                .attr('height', '100%')
-                .style('fill', '#fff');
+        maskGroup.append('rect')
+            .attr('width', '100%')
+            .attr('height', '100%')
+            .style('fill', '#fff');
 
-            // full version
-            var visibleMap = background.append("image")
-                .attr({
-                    // TODO: use different background image
-                    'xlink:href': 'https://media-waterdeep.cursecdn.com/attachments/3/44/lmop5.jpg',
-                    'preserveAspectRatio': 'none',
-                    'class': 'visibleArea', x: 0, y: 0,
-                    height: '100%', width: '100%'
-                });
+        var visibleMap = background.append("image")
+            .classed('visibleArea', true)
+            .attr('xlink:href', 'https://media-waterdeep.cursecdn.com/attachments/3/44/lmop5.jpg')
+            .attr('preserveAspectRatio', 'none')
+            .attr('x', 0)
+            .attr('y', 0)
+            .attr('height', '100%')
+            .attr('width', '100%');
 
-            background.append('rect')
-                .attr('width', '100%')
-                .attr('height', '100%')
-                .attr('mask', 'url(#map-mask)');
+        background.append('rect')
+            .attr('width', '100%')
+            .attr('height', '100%')
+            .attr('mask', 'url(#map-mask)');
 
-            // 3. Add a starting circle to break the fog
-            // ----------------------------------
-            // create a masked path to show visible nodes   
-            var vertices = [];
+        // 3. Add a starting circle to break the fog
+        // ----------------------------------
+        // create a masked path to show visible nodes   
+        var vertices = [];
 
-            function updateFog() {
-                var masks = maskGroup.selectAll('.breakFog')
-                    .data(vertices);
+        function updateFog() {
 
-                var newMasks = masks.enter()
-                    .append('rect')
-                    .style({
-                        fill: '#000000',
-                        opacity: 1
-                    });
+            var masks = maskGroup.selectAll('.breakFog')
+                .data(vertices);
 
-                // update existing masks
-                masks
-                    .attr({
-                        'class': 'breakFog',
-                        x: function (d) { return d.x - 43; },
-                        y: function (d) { return d.y - 43; },
-                        filter: 'url(#filter-map)',
-                        width: 86,
-                        height: 86
-                    });
+            masks.enter()
+                .append('rect')
+                .classed('breakFog', true)
+                .style('fill', '#000000')
+                .style('opacity', 1)
+                .attr('x', function (d) { return d.x - 43; })
+                .attr('y', function (d) { return d.y - 43; })
+                .attr('filter', 'url(#filter-map)')
+                .attr('width', 86)
+                .attr('height', 86);
 
-                var newStyle = { fill: '#000', opacity: 1 };
-                masks.style(newStyle);
+            masks.exit().remove();
 
-                masks.exit().remove();
+        };
 
-            };
+        // Call it immediately 
+        updateFog();
 
-            // Call it immediately 
-            updateFog();
-
-            // then, call whenever a point is added
-            wrapper.on('click', function () {
-                vertices.push({
-                    x: d3.event.clientX,
-                    y: d3.event.clientY
-                });
-                updateFog();
+        // then, call whenever a point is added
+        wrapper.on('click', function () {
+            vertices.push({
+                x: d3.event.x,
+                y: d3.event.y
             });
+            updateFog();
+        });
 
-        })();
+        //})();
 
     </script>
 

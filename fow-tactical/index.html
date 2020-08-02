@@ -34,11 +34,31 @@
         .fog {
             filter: brightness(0.05);
         }
+
+        /**********************************************************************/
+
+        .token {
+            position: absolute;
+            background-size: contain;
+            border-radius: 50%;
+        }
+
+        .friendly {
+            border: 2px solid lightsteelblue;
+        }
+
+        .hostile {
+            border: 2px solid crimson;
+        }
+
+        .boss {
+            border: 2px solid goldenrod;
+        }
     </style>
 </head>
 
 <body>
-    <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height=557 width=800>
+    <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height=784 width=1125>
         <defs>
             <filter id="filter-map" x="-0.15000001" y="-0.15000001" width="1.3" height="1.3"
                 color-interpolation-filters="sRGB">
@@ -53,8 +73,10 @@
             </filter>
         </defs>
     </svg>
+    <div id="game-board"></div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="combatants.js"></script>
 
     <script>
 
@@ -64,7 +86,7 @@
         var svg = d3.select('svg');
         var wrapper = svg.append('g').classed('map-wrapper', true);
         var background = wrapper.append('g').classed('background', true);
-        var characters = wrapper.append('g').classed('characters', true);
+        var characters = wrapper.append('g').classed('characters', true); // cruft?
 
         // 1. Setup the mask
         // ----------------------------------
@@ -128,6 +150,62 @@
         });
 
         //})();
+
+        ///////////////////////////////////////////////////////////////////////
+
+        const squarWidth = 29;
+
+        // combatants array is defined in combatants.js
+
+        const drag = () => {
+
+            function dragstarted(d) {
+                d3.select(this).raise().style('border-width', `${4}px`);
+            }
+
+            function dragged(d) {
+                d3.select(this)
+                    .style("left", (d.x = d3.event.x) + 'px')
+                    .style("top", (d.y = d3.event.y) + 'px');
+            }
+
+            function dragended(d) {
+                d3.select(this).style('border-width', `${2}px`);
+            }
+
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+
+        const updateCombatants = () => {
+
+            let tokens = d3.select('#game-board').selectAll('.token')
+                .data(combatants.filter(c => c.hidden === false), c => c.name);
+
+            tokens.enter()
+                .append('div')
+                .attr('class', d => `token ${d.alignment}`)
+                .style('background-image', d => `url(${d.imgSrc})`)
+                .style('width', `${squarWidth}px`)
+                .style('height', `${squarWidth}px`)
+                .style('left', d => d.x + 'px')
+                .style('top', d => d.y + 'px')
+                .call(drag());
+
+            tokens.exit().remove();
+
+        }
+
+        updateCombatants();
+
+        const hideCombatants = (hide, ... list) => {
+            combatants
+                .filter(c => list.includes(c.name))
+                .forEach(c => { c.hidden = hide; });
+            updateCombatants();
+        };
 
     </script>
 

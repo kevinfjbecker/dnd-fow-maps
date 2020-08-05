@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by kevinfjbecker (http://jsbin.com/vevixab/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Geometry Maker</title>
+  <style id="jsbin-css">
+    svg {
+      border: solid 1px black;
+    }
+
+    path {
+      fill: none;
+      stroke: black;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Geometry Maker</h1>
+  <div>
+    <button onClick="ready()">ready</button>
+    <button onClick="stop()">stop</button>
+  </div>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <script id="jsbin-javascript">
+    var data = [];
+
+    var i;
+    var state = 'stop'; // ready | reading | stop
+
+    function ready() {
+      state = 'ready';
+    }
+
+    function stop() {
+      state = 'stop';
+      updatePaths()
+    }
+
+    var clickAction = {
+      'ready': function (element) {
+        var coordinates = d3.mouse(element);
+        var x = coordinates[0];
+        var y = coordinates[1];
+
+        data.push([[x, y]]);
+        i = i === undefined ? 0 : i + 1;
+        state = 'reading';
+      },
+      'reading': function (element) {
+        var coordinates = d3.mouse(element);
+        var x = coordinates[0];
+        var y = coordinates[1];
+
+        data[i].push([x, y]);
+      },
+      'stop': function () { }
+    }
+
+    var svg = d3.select('body').append('svg')
+      .attr('width', 500)
+      .attr('height', 300);
+
+    svg.on('click', clickHandler);
+
+    function clickHandler() {
+
+      clickAction[state](this);
+      updatePaths();
+
+    }
+
+    function updatePaths() {
+      var paths = svg.selectAll('path')
+        .data(data);
+
+      paths.enter().append('path')
+        .attr('d', function (d) {
+          return pathString(d);
+        });
+
+      paths.attr('d', function (d) {
+        return pathString(d);
+      });
+
+      paths.exit().remove();
+
+    }
+
+    function pathString(aa) {
+      return `M ${aa.map(function (a) {
+        return a.join(' ');
+      }).join(' L ')} ${state === 'stop' ? ' z' : ''}`;
+    }
+
+    updatePaths();
+
+  </script>
+</body>
+
+</html>

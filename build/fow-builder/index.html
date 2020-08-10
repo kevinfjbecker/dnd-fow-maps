@@ -79,18 +79,12 @@
     </svg>
     <div id="game-board"></div>
 
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
 
     <script src="combatants.js"></script>
     <script src="geometry.js"></script>
 
     <script>
-
-        ///////////////////////////////////////////////////////////// Editor //
-
-        function printGeometry() {
-            console.log(JSON.stringify(geometry, null, 4));
-        }
 
         ///////////////////////////////////////////////////////// Fog of War //
 
@@ -124,22 +118,23 @@
 
         addFogOfWarLayer();
 
-        // 3. Add a starting circle to break the fog
+        // 3. create a masked path to show visible nodes
         // ----------------------------------
-        // create a masked path to show visible nodes   
 
         function updateFog() {
 
             var masks = maskGroup.selectAll('.break-fog')
-                .data(geometry);
+                .data(geometry.filter(r => r.isExplored === true));
 
             masks.enter()
                 .append('path')
                 .classed('break-fog', true)
-                .attr('d', d => pathString(d))
+                .attr('d', d => pathString(d.vertices))
                 .style('fill', '#000000')
                 .style('opacity', 1)
                 .attr('filter', 'url(#filter-map)');
+
+            masks.attr('d', d => pathString(d.vertices));
 
             masks.exit().remove();
 
@@ -170,9 +165,9 @@
         ///////////////////////////////////////////////////// Geometry Maker //
 
         // todo: encapsulate variables!!!
-        var i;
+        var i = geometry.length - 1;
         var state = 'stop'; // ready | reading | stop
-        var showPaths = true;
+        var showPaths = false;
 
         function ready() {
             state = 'ready';
@@ -180,7 +175,9 @@
 
         function stop() {
             state = 'stop';
-            updatePaths()
+            geometry[i].isComplete = true;
+            updatePaths();
+            updateVertexHandles();
         }
 
         var clickAction = {
@@ -189,8 +186,13 @@
                 var x = coordinates[0];
                 var y = coordinates[1];
 
-                geometry.push([[x, y]]);
-                i = i === undefined ? 0 : i + 1;
+                geometry.push({
+                    name: 'your_name_here',
+                    isComplete: false,
+                    isExplored: true,
+                    vertices: [[x, y]]
+                });
+                i = i + 1;
                 state = 'reading';
             },
             'reading': function (element) {
@@ -198,7 +200,7 @@
                 var x = coordinates[0];
                 var y = coordinates[1];
 
-                geometry[i].push([x, y]);
+                geometry[i].vertices.push([x, y]);
             },
             'stop': function () { }
         }
@@ -209,6 +211,7 @@
 
             clickAction[state](this);
             updatePaths();
+            updateVertexHandles();
 
         }
 
@@ -219,11 +222,11 @@
 
             paths.enter().append('path')
                 .attr('d', function (d) {
-                    return pathString(d);
-                });
+                    return pathString(d.vertices);
+                })
 
             paths.attr('d', function (d) {
-                return pathString(d);
+                return pathString(d.vertices);
             });
 
             paths.exit().remove();
@@ -241,7 +244,53 @@
         const togglePaths = () => {
             showPaths = !showPaths;
             updatePaths();
+            updateVertexHandles();
         };
+
+        function printGeometry() {
+            console.log(JSON.stringify(geometry, null, 4));
+        }
+
+        const dragHandle = (v) => {
+
+            function dragstarted(v) { }
+
+            function dragged(v) {
+                d3.select(this)
+                    .attr("cx", (v[0] = d3.event.x))
+                    .attr("cy", (v[1] = d3.event.y));
+                updatePaths();
+            }
+
+            function dragended(v) { }
+
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+
+        function updateVertexHandles() {
+            handles = wrapper.selectAll('.vertex-handle')
+                .data(showPaths && geometry[i] && geometry[i].vertices || [], function(d, j) {
+                    return `${geometry[i].name}.v${j}`; 
+                });
+
+
+            handles.enter()
+                .append('circle')
+                .classed('vertex-handle', true)
+                .attr('cx', v => v[0])
+                .attr('cy', v => v[1])
+                .attr('r', 5)
+                .style('fill', '#fff')
+                .style('stroke', 'green')
+                .call(dragHandle());
+
+            handles.exit().remove();
+        }
+
+        updateVertexHandles();
 
         /////////////////////////////////////////////////////// Tactical Map //
 
@@ -252,7 +301,7 @@
         const drag = () => {
 
             function dragstarted(d) {
-                d3.select(this).raise().style('border-width', `${4}px`);
+                d3.select(this).raise().style('border-width', `${3}px`);
             }
 
             function dragged(d) {
@@ -263,6 +312,16 @@
 
             function dragended(d) {
                 d3.select(this).style('border-width', `${2}px`);
+
+                room = geometry.filter(r => {
+                    return d3.polygonContains(r.vertices, [d.x, d.y]);
+                })[0];
+
+                if (room) {
+                    showRoomWithCombatants(room.name, true);
+                    console.log(`${d.name} dropped in ${room.name}.`) // debug    
+                };
+
             }
 
             return d3.drag()
@@ -298,6 +357,52 @@
                 .forEach(c => { c.hidden = hide; });
             updateCombatants();
         };
+
+
+        function printCombatants() {
+            console.log(JSON.stringify(combatants, null, 4));
+        }
+
+        ////////////////////////////////////////////////////////// Utilities //
+
+        (function (console) {
+
+            console.save = function (data, filename, variableName) {
+
+                if (!data) {
+                    console.error('Console.save: No data')
+                    return;
+                }
+
+                if (!filename) filename = 'console.json'
+
+                if (typeof data === "object") {
+                    data = `const ${variableName} = ${JSON.stringify(data, undefined, 4)}`;
+                }
+
+                var blob = new Blob([data], { type: 'text/json' }),
+                    e = document.createEvent('MouseEvents'),
+                    a = document.createElement('a')
+
+                a.download = filename
+                a.href = window.URL.createObjectURL(blob)
+                a.dataset.downloadurl = ['text/json', a.download, a.href].join(':')
+                e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+                a.dispatchEvent(e)
+            }
+        })(console);
+
+        //////////////////////////////////////////////////////// DM Controls //
+
+        function showRoomWithCombatants(name, shown) {
+            let room = geometry.filter(r => r.name === name)[0];
+            room.isExplored = shown;
+            combatants
+                .filter(c => d3.polygonContains(room.vertices, [c.x, c.y]))
+                .forEach(c => { c.hidden = !shown });
+            updateFog();
+            updateCombatants();
+        }
 
     </script>
 

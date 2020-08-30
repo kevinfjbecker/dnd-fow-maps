@@ -96,7 +96,7 @@ const geometry = [
     {
         "name": "3.TrappedHall",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 749,
@@ -135,7 +135,7 @@ const geometry = [
     {
         "name": "4.TresendarCrypts",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 588,
@@ -158,7 +158,7 @@ const geometry = [
     {
         "name": "5.SlavePens",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 742,
@@ -204,7 +204,7 @@ const geometry = [
     {
         "name": "x.Corridor.4.6.7",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 596,
@@ -227,7 +227,7 @@ const geometry = [
     {
         "name": "7.StoreroomandWorkArea",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 414,

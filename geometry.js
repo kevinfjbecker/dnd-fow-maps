@@ -2,7 +2,7 @@ const geometry = [
     {
         "name": "14.KingsQuarters",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 811,
@@ -57,7 +57,7 @@ const geometry = [
     {
         "name": "x.Corridor.11.12.14",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 703.2000122070312,
@@ -195,7 +195,7 @@ const geometry = [
     {
         "name": "8.DarkHall",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 380.3999938964844,
@@ -348,7 +348,7 @@ const geometry = [
     {
         "name": "12.GuardBarracks",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 771.5714111328125,
@@ -521,7 +521,7 @@ const geometry = [
     {
         "name": "x.Corridor.7.10",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 567.5714111328125,
@@ -580,7 +580,7 @@ const geometry = [
     {
         "name": "10.PosternGate",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 500.5714416503906,
@@ -603,7 +603,7 @@ const geometry = [
     {
         "name": "7.BanquetHall",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 309.79998779296875,

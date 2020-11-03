@@ -317,7 +317,7 @@ const geometry = [
     {
         "name": "x.Corridor.14",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 732.5714111328125,
@@ -419,7 +419,7 @@ const geometry = [
     {
         "name": "13.OwlbearTower",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 685.5714111328125,
@@ -642,7 +642,7 @@ const geometry = [
     {
         "name": "4.RuinedBarracks",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 312,
@@ -701,7 +701,7 @@ const geometry = [
     {
         "name": "3b.ArcherPost",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 236,
@@ -736,7 +736,7 @@ const geometry = [
     {
         "name": "1.CastleEntrance",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 206,
@@ -803,7 +803,7 @@ const geometry = [
     {
         "name": "5.Storeroom",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 380,
@@ -850,7 +850,7 @@ const geometry = [
     {
         "name": "6.HobgoblinBarracks",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 238,
@@ -885,7 +885,7 @@ const geometry = [
     {
         "name": "3a.ArcherPost",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 114,

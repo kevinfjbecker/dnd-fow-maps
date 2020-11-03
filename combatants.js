@@ -3,160 +3,160 @@ const combatants = [
         "name": "Random",
         "alignment": "friendly",
         "imgSrc": "img/random.jpeg",
-        "x": 853,
-        "y": 125,
+        "x": 280,
+        "y": 272,
         "hidden": false
     },
     {
         "name": "GoblinOne",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 203,
-        "y": 302,
-        "hidden": true
+        "x": 97,
+        "y": 697,
+        "hidden": false
     },
     {
         "name": "GoblinTwo",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 168,
-        "y": 271,
-        "hidden": true
+        "x": 134,
+        "y": 698,
+        "hidden": false
     },
     {
         "name": "GoblinThree",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 203,
-        "y": 517,
-        "hidden": true
+        "x": 100,
+        "y": 625,
+        "hidden": false
     },
     {
         "name": "GoblinFour",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 171,
-        "y": 517,
-        "hidden": true
+        "x": 134,
+        "y": 625,
+        "hidden": false
     },
     {
         "name": "GoblinFive",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 205,
-        "y": 556,
-        "hidden": true
+        "x": 98,
+        "y": 661,
+        "hidden": false
     },
     {
         "name": "GoblinSix",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 241,
-        "y": 554,
-        "hidden": true
+        "x": 171,
+        "y": 698,
+        "hidden": false
     },
     {
         "name": "GoblinSeven",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 205,
-        "y": 588,
-        "hidden": true
+        "x": 134,
+        "y": 660,
+        "hidden": false
     },
     {
         "name": "HobgoblinOne",
         "alignment": "hostile",
         "imgSrc": "img/hobgoblin.png",
-        "x": 204,
-        "y": 160,
-        "hidden": true
+        "x": 241,
+        "y": 661,
+        "hidden": false
     },
     {
         "name": "HobgoblinTwo",
         "alignment": "hostile",
         "imgSrc": "img/hobgoblin.png",
-        "x": 169,
-        "y": 160,
-        "hidden": true
+        "x": 274,
+        "y": 659,
+        "hidden": false
     },
     {
         "name": "HobgoblinThree",
         "alignment": "hostile",
         "imgSrc": "img/hobgoblin.png",
-        "x": 135,
-        "y": 196,
-        "hidden": true
+        "x": 207,
+        "y": 660,
+        "hidden": false
     },
     {
         "name": "HobgoblinFour",
         "alignment": "hostile",
         "imgSrc": "img/hobgoblin.png",
-        "x": 134,
-        "y": 230,
-        "hidden": true
+        "x": 170,
+        "y": 659,
+        "hidden": false
     },
     {
         "name": "GoblinEight",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 420,
-        "y": 448,
+        "x": 428,
+        "y": 649,
         "hidden": false
     },
     {
         "name": "GoblinNine",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 490,
-        "y": 483,
+        "x": 337,
+        "y": 658,
         "hidden": false
     },
     {
         "name": "GoblinTen",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 385,
-        "y": 412,
+        "x": 392,
+        "y": 645,
         "hidden": false
     },
     {
         "name": "GoblinEleven",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 351,
-        "y": 447,
+        "x": 240,
+        "y": 697,
         "hidden": false
     },
     {
         "name": "GoblinTwelve",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 420,
-        "y": 483,
+        "x": 390,
+        "y": 616,
         "hidden": false
     },
     {
         "name": "GoblinThirteen",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 385,
-        "y": 518,
+        "x": 204,
+        "y": 697,
         "hidden": false
     },
     {
         "name": "GoblinFourteen",
         "alignment": "hostile",
         "imgSrc": "img/goblin.jpg",
-        "x": 454,
-        "y": 516,
+        "x": 358,
+        "y": 615,
         "hidden": false
     },
     {
         "name": "Yegg",
         "alignment": "boss",
         "imgSrc": "img/goblin.jpg",
-        "x": 456,
-        "y": 414,
+        "x": 409,
+        "y": 676,
         "hidden": false
     },
     {
@@ -227,9 +227,9 @@ const combatants = [
         "name": "Owlbear",
         "alignment": "hostile",
         "imgSrc": "img/owlbear.png",
-        "x": 708,
-        "y": 555,
-        "hidden": true
+        "x": 373,
+        "y": 710,
+        "hidden": false
     },
     {
         "name": "KingGrol",
@@ -259,56 +259,56 @@ const combatants = [
         "name": "Gundrun",
         "alignment": "friendly",
         "imgSrc": "img/gundrun.jpeg",
-        "x": 816,
-        "y": 126,
+        "x": 273,
+        "y": 376,
         "hidden": false
     },
     {
         "name": "Belimore",
         "alignment": "friendly",
         "imgSrc": "img/belimore.jpg",
-        "x": 885,
-        "y": 195,
+        "x": 248,
+        "y": 270,
         "hidden": false
     },
     {
         "name": "Cire",
         "alignment": "friendly",
         "imgSrc": "img/cire.jpg",
-        "x": 817,
-        "y": 266,
+        "x": 279,
+        "y": 304,
         "hidden": false
     },
     {
         "name": "Panther",
         "alignment": "friendly",
         "imgSrc": "img/panther.jpg",
-        "x": 851,
-        "y": 160,
+        "x": 247,
+        "y": 301,
         "hidden": false
     },
     {
         "name": "Rew",
         "alignment": "friendly",
         "imgSrc": "img/rew.jpg",
-        "x": 848,
-        "y": 195,
+        "x": 273,
+        "y": 340,
         "hidden": false
     },
     {
         "name": "Speeder",
         "alignment": "friendly",
         "imgSrc": "img/speeder.jpg",
-        "x": 851,
-        "y": 231,
+        "x": 246,
+        "y": 379,
         "hidden": false
     },
     {
         "name": "Wolf",
         "alignment": "friendly",
         "imgSrc": "img/wolf.jpg",
-        "x": 885,
-        "y": 232,
+        "x": 244,
+        "y": 339,
         "hidden": false
     }
 ]

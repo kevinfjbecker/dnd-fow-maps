@@ -163,9 +163,9 @@ const combatants = [
         "name": "Grick",
         "alignment": "hostile",
         "imgSrc": "img/grick.png",
-        "x": 333,
-        "y": 284,
-        "hidden": true
+        "x": 1033,
+        "y": 697,
+        "hidden": false
     },
     {
         "name": "GoblinFifteen",

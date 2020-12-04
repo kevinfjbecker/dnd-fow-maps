@@ -1,7 +1,7 @@
 
 param(
     [string] $downloadsFolder = "~\Downloads",
-    [string] $projectFolder = "$PSScriptRoot\build",
+    [string] $projectFolder = "$PSScriptRoot\build\js",
     [string] $filter = "*"
 )
 
@@ -20,10 +20,10 @@ $action = {
 
     $watchFiles = 'geometry.js', 'combatants.js'
     $fullPath = $event.SourceEventArgs.FullPath
-    $fileName = Split-Path $fullPath -leaf
+    $fileName = Split-Path $fullPath -Leaf
     $destinationRoot = $event.MessageData
 
-    if ($watchFiles.Contains($fileName)) {
+    if ($watchFiles.Contains("$fileName")) {
         Move-Item -Path $fullPath -Destination "$destinationRoot\$fileName" -Force
     }
 

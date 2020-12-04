@@ -32,3 +32,16 @@ function addWanderingMonstersToCurrentRoom() {
     combatants.push(...monsters);
     updateCombatants();
 }
+
+const addMonsterToCurrentRoom = (name, fileType = 'jpg') => {
+    const c = centerOfRoom(currentRoom);
+    combatants.push({
+        alignment: "hostile",
+        hidden: false,
+        imgSrc: `img/${name}.${fileType}`,
+        name: `${name}.${nextMonsterNameSuffix(name)}`,
+        x: c[0],
+        y: c[1]
+    });
+    updateCombatants();
+}

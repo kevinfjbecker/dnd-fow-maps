@@ -42,8 +42,8 @@ const updateCombatants = () => {
     .append('div')
     .attr('class', d => `token ${d.alignment}`)
     .style('background-image', d => `url(${d.imgSrc})`)
-    .style('width', `${squarWidth}px`)
-    .style('height', `${squarWidth}px`)
+    .style('width', d => `${d.size === 'large' ? 2 * squarWidth : squarWidth}px`)
+    .style('height', d => `${d.size === 'large' ? 2 * squarWidth : squarWidth}px`)
     .style('left', d => d.x + 'px')
     .style('top', d => d.y + 'px')
     .call(drag());

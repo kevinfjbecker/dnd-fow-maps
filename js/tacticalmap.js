@@ -35,22 +35,20 @@ const drag = () => {
 }
 
 const updateCombatants = () => {
-
     let tokens = d3.select('#game-board').selectAll('.token')
-        .data(combatants.filter(c => c.hidden === false), c => c.name);
-
+    .data(combatants.filter(c => c.hidden === false), c => c.name);
+    
     tokens.enter()
-        .append('div')
-        .attr('class', d => `token ${d.alignment}`)
-        .style('background-image', d => `url(${d.imgSrc})`)
-        .style('width', `${squarWidth}px`)
-        .style('height', `${squarWidth}px`)
-        .style('left', d => d.x + 'px')
-        .style('top', d => d.y + 'px')
-        .call(drag());
-
+    .append('div')
+    .attr('class', d => `token ${d.alignment}`)
+    .style('background-image', d => `url(${d.imgSrc})`)
+    .style('width', `${squarWidth}px`)
+    .style('height', `${squarWidth}px`)
+    .style('left', d => d.x + 'px')
+    .style('top', d => d.y + 'px')
+    .call(drag());
+    
     tokens.exit().remove();
-
 }
 
 updateCombatants();

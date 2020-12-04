@@ -4,7 +4,7 @@ const combatants = [
         "alignment": "friendly",
         "imgSrc": "img/random.jpeg",
         "x": 170,
-        "y": 2768,
+        "y": 2772,
         "hidden": false
     },
     {
@@ -27,8 +27,8 @@ const combatants = [
         "name": "Panther",
         "alignment": "friendly",
         "imgSrc": "img/panther.jpg",
-        "x": 211,
-        "y": 2677,
+        "x": 213,
+        "y": 2678,
         "hidden": false
     },
     {

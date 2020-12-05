@@ -57,55 +57,55 @@ const combatants = [
     },
     {
         "alignment": "hostile",
-        "hidden": false,
+        "hidden": true,
         "imgSrc": "img/nezznar.jpeg",
         "name": "nezznar.0",
-        "x": 328.54807444739305,
-        "y": 235.4643160317837
+        "x": 271.54807444739305,
+        "y": 265.4643160317837
     },
     {
         "alignment": "hostile",
-        "hidden": false,
+        "hidden": true,
         "imgSrc": "img/spider.jfif",
         "name": "spider.0",
-        "size": 'large',
-        "x": 389.54807444739305,
-        "y": 498.4643160317837
+        "size": "large",
+        "x": 373.54807444739305,
+        "y": 493.4643160317837
     },
     {
         "alignment": "hostile",
-        "hidden": false,
+        "hidden": true,
         "imgSrc": "img/spider.jfif",
         "name": "spider.1",
-        "size": 'large',
-        "x": 141.54807444739305,
-        "y": 496.4643160317837
+        "size": "large",
+        "x": 136.54807444739305,
+        "y": 494.4643160317837
     },
     {
         "alignment": "hostile",
-        "hidden": false,
+        "hidden": true,
         "imgSrc": "img/spider.jfif",
         "name": "spider.2",
-        "size": 'large',
-        "x": 391.54807444739305,
-        "y": 279.4643160317837
+        "size": "large",
+        "x": 373.54807444739305,
+        "y": 255.4643160317837
     },
     {
         "alignment": "hostile",
-        "hidden": false,
+        "hidden": true,
         "imgSrc": "img/spider.jfif",
         "name": "spider.3",
-        "size": 'large',
-        "x": 139.54807444739305,
-        "y": 278.4643160317837
+        "size": "large",
+        "x": 137.54807444739305,
+        "y": 256.4643160317837
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/ochrejelly.png",
         "name": "ochrejelly.0",
-        "size": 'large',
-        "x": 312.50760018091364,
-        "y": 1943.488180913614
+        "size": "large",
+        "x": 316.50760018091364,
+        "y": 1944.488180913614
     }
 ]

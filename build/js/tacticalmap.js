@@ -18,14 +18,16 @@ const drag = () => {
     }
 
     function dragended(d) {
+       
         d3.select(this).style('border-width', `${2}px`);
-        
+       
+        currentToken = d;
+
         geometry.filter(room => {
             return d3.polygonContains(room.vertices, [d.x, d.y]);
         }).forEach(room => {
             showRoomWithCombatants(room.name, true)
         });
-
     }
 
     return d3.drag()

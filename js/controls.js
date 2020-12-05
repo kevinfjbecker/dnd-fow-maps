@@ -1,6 +1,12 @@
 
 //////////////////////////////////////////////////////////////// controls.js //
 
+//////////////////////////////////////////////////////////////////// Utility //
+
+const centerOfRoom = (room) => d3.polygonCentroid(room.vertices);
+
+////////////////////////////////////////////////////////////// Form Controls //
+
 const hideControls = () => {
     document.querySelector('#control-panel').setAttribute('hidden', true);
 };
@@ -9,16 +15,19 @@ const showControls = () => {
     document.querySelector('#control-panel').removeAttribute('hidden');
 };
 
-let currentRoom = undefined;
+////////////////////////////////////////////////////////// Element Selection //
+
 d3.select('svg').on('click', () => {
     currentRoom = geometry.filter(room => {
         return d3.polygonContains(room.vertices, [d3.event.pageX, d3.event.pageY])
     })[0];
 });
 
-const centerOfRoom = (room) => d3.polygonCentroid(room.vertices);
+// NB: Token Selection is in Token Dragging (as of writing)
 
-// assumes the pattern: {name}.{index}
+///////////////////////////////////////////////////////// Wandering Monsters //
+
+// assumes the naming pattern: {name}.{index}
 const nextMonsterNameSuffix = name =>
     combatants.filter(c => c.name.split('.')[0] === name).length;
 
@@ -33,12 +42,14 @@ function addWanderingMonstersToCurrentRoom() {
     updateCombatants();
 }
 
-const addMonsterToCurrentRoom = (name, fileType = 'jpg') => {
+/////////////////////////////////////////////////// Populate Monsters & NPCs //
+
+const addMonsterToCurrentRoom = (name, imgFileType = 'jpg') => {
     const c = centerOfRoom(currentRoom);
     combatants.push({
         alignment: "hostile",
         hidden: false,
-        imgSrc: `img/${name}.${fileType}`,
+        imgSrc: `img/${name}.${imgFileType}`,
         name: `${name}.${nextMonsterNameSuffix(name)}`,
         x: c[0],
         y: c[1]

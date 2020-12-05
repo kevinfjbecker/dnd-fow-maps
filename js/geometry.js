@@ -77,7 +77,7 @@ const geometry = [
     {
         "name": "1.b.CaveEntrance",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 464,
@@ -184,7 +184,7 @@ const geometry = [
     {
         "name": "1.c.CaveEntrance",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 442,
@@ -239,7 +239,7 @@ const geometry = [
     {
         "name": "x.Corridor.1.3",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 678,
@@ -270,7 +270,7 @@ const geometry = [
     {
         "name": "2.a.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 495,
@@ -317,7 +317,7 @@ const geometry = [
     {
         "name": "2.b.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 266,
@@ -364,7 +364,7 @@ const geometry = [
     {
         "name": "2.c.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 309,
@@ -387,7 +387,7 @@ const geometry = [
     {
         "name": "2.d.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 214,
@@ -963,7 +963,7 @@ const geometry = [
     {
         "name": "3.OldEntrance",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 928,

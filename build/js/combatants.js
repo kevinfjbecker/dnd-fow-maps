@@ -3,8 +3,8 @@ const combatants = [
         "name": "Random",
         "alignment": "friendly",
         "imgSrc": "img/random.jpeg",
-        "x": 953,
-        "y": 2310,
+        "x": 226,
+        "y": 1939,
         "hidden": false
     },
     {

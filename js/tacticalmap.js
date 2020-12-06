@@ -53,16 +53,18 @@ const updateCombatants = () => {
     tokens.exit().remove();
 }
 
-updateCombatants();
+updateCombatants(); // todo move to an init script
 
+// cruft ?
 const hideCombatants = (hide, ...list) => {
     combatants
-        .filter(c => list.includes(c.name))
-        .forEach(c => { c.hidden = hide; });
+    .filter(c => list.includes(c.name))
+    .forEach(c => { c.hidden = hide; });
     updateCombatants();
 };
 
 
+// cruft ?
 function printCombatants() {
     console.log(JSON.stringify(combatants, null, 4));
 }

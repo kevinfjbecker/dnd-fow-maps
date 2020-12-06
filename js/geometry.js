@@ -936,7 +936,7 @@ const geometry = [
     {
         "name": "2.w.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 841,

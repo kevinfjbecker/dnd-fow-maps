@@ -430,7 +430,7 @@ const geometry = [
     {
         "name": "2.e.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 122,
@@ -453,7 +453,7 @@ const geometry = [
     {
         "name": "2.f.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 213,
@@ -476,7 +476,7 @@ const geometry = [
     {
         "name": "2.g.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 106,
@@ -499,7 +499,7 @@ const geometry = [
     {
         "name": "2.h.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 105,
@@ -522,7 +522,7 @@ const geometry = [
     {
         "name": "2.i.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 210,
@@ -553,7 +553,7 @@ const geometry = [
     {
         "name": "2.j.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 418,
@@ -576,7 +576,7 @@ const geometry = [
     {
         "name": "2.k.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 416,
@@ -599,7 +599,7 @@ const geometry = [
     {
         "name": "2.l.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 701,
@@ -630,7 +630,7 @@ const geometry = [
     {
         "name": "2.m.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 537,
@@ -657,7 +657,7 @@ const geometry = [
     {
         "name": "2.n.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 759,
@@ -680,7 +680,7 @@ const geometry = [
     {
         "name": "2.o.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 648,
@@ -707,7 +707,7 @@ const geometry = [
     {
         "name": "2.p.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 784,
@@ -738,7 +738,7 @@ const geometry = [
     {
         "name": "2.q.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 688,
@@ -781,7 +781,7 @@ const geometry = [
     {
         "name": "2.r.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 602,
@@ -812,7 +812,7 @@ const geometry = [
     {
         "name": "2.s.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 681,
@@ -843,7 +843,7 @@ const geometry = [
     {
         "name": "2.t.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 981,
@@ -870,7 +870,7 @@ const geometry = [
     {
         "name": "2.u.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 901,
@@ -913,7 +913,7 @@ const geometry = [
     {
         "name": "2.v.MineTunnels",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 657,
@@ -1236,7 +1236,7 @@ const geometry = [
     {
         "name": "x.Corridor.6.7.b",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1260,
@@ -1259,7 +1259,7 @@ const geometry = [
     {
         "name": "x.Corridor.7.9",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1257,
@@ -1645,7 +1645,7 @@ const geometry = [
     {
         "name": "your_name_here",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 249,
@@ -1768,7 +1768,7 @@ const geometry = [
     {
         "name": "x.Corridor.10.11",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 671,
@@ -1791,7 +1791,7 @@ const geometry = [
     {
         "name": "x.Corridor.10.11.18",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 542,
@@ -2388,7 +2388,7 @@ const geometry = [
     {
         "name": "x.Corridor.2.9",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 733,
@@ -2423,7 +2423,7 @@ const geometry = [
     {
         "name": "x.Corridor.9.12",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1387,
@@ -2462,7 +2462,7 @@ const geometry = [
     {
         "name": "x.Corridor.9.11",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1026,
@@ -2493,7 +2493,7 @@ const geometry = [
     {
         "name": "x.Corridor.11.12",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 973,
@@ -2516,7 +2516,7 @@ const geometry = [
     {
         "name": "9.a.GreatCavern",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 719,
@@ -2631,7 +2631,7 @@ const geometry = [
     {
         "name": "9.b.GreatCavern",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1115,
@@ -2726,7 +2726,7 @@ const geometry = [
     {
         "name": "9.c.GreatCavern",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1283,
@@ -2968,7 +2968,7 @@ const geometry = [
     {
         "name": "12.SmelterCavern",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1137,

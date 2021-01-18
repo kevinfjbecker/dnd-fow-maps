@@ -3,56 +3,56 @@ const combatants = [
         "name": "Random",
         "alignment": "friendly",
         "imgSrc": "img/random.jpeg",
-        "x": 1000,
-        "y": 1308,
+        "x": 1182,
+        "y": 1427,
         "hidden": false
     },
     {
         "name": "Belimore",
         "alignment": "friendly",
         "imgSrc": "img/belimore.jpg",
-        "x": 1064,
-        "y": 1340,
+        "x": 1098,
+        "y": 1369,
         "hidden": false
     },
     {
         "name": "Cire",
         "alignment": "friendly",
         "imgSrc": "img/cire.jpg",
-        "x": 1036,
-        "y": 1337,
+        "x": 1100,
+        "y": 1425,
         "hidden": false
     },
     {
         "name": "Panther",
         "alignment": "friendly",
         "imgSrc": "img/panther.jpg",
-        "x": 1037,
-        "y": 1306,
+        "x": 1125,
+        "y": 1308,
         "hidden": false
     },
     {
         "name": "Rew",
         "alignment": "friendly",
         "imgSrc": "img/rew.jpg",
-        "x": 998,
-        "y": 1184,
+        "x": 1157,
+        "y": 1337,
         "hidden": false
     },
     {
         "name": "Speeder",
         "alignment": "friendly",
         "imgSrc": "img/speeder.jpg",
-        "x": 1100,
-        "y": 1341,
+        "x": 1125,
+        "y": 1338,
         "hidden": false
     },
     {
         "name": "Wolf",
         "alignment": "friendly",
         "imgSrc": "img/wolf.jpg",
-        "x": 1052,
-        "y": 1124,
+        "x": 1159,
+        "y": 1308,
         "hidden": false
     },
     {
@@ -385,72 +385,72 @@ const combatants = [
         "hidden": false,
         "imgSrc": "img/flameskull.png",
         "name": "flameskull.0",
-        "x": 1425.2712900575432,
-        "y": 864.3626356491518
+        "x": 1400.2712900575432,
+        "y": 1340.3626356491518
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.0",
-        "x": 1402.2712900575432,
-        "y": 981.3626356491518
+        "x": 1368.2712900575432,
+        "y": 1400.6958876022768
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.1",
-        "x": 1343.2712900575432,
-        "y": 979.3626356491518
+        "x": 1368.2712900575432,
+        "y": 1431.3626356491518
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.2",
-        "x": 1366.2712900575432,
-        "y": 1002.3626356491518
+        "x": 1338.2712900575432,
+        "y": 1399.3626356491518
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.3",
-        "x": 1188.2712900575432,
-        "y": 858.3626356491518
+        "x": 1007.2712900575432,
+        "y": 1173.3626356491518
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.4",
-        "x": 1164.2712900575432,
-        "y": 826.3626356491518
+        "x": 1066.2712900575432,
+        "y": 1186.3626356491518
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.5",
-        "x": 1185.2712900575432,
-        "y": 797.3626356491518
+        "x": 1038.2712900575432,
+        "y": 1158.3626356491518
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.6",
-        "x": 1169.2712900575432,
-        "y": 884.3626356491518
+        "x": 1036.2712900575432,
+        "y": 1187.3626356491518
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.7",
-        "x": 1426.2712900575432,
-        "y": 1005.3626356491518
+        "x": 1338.2712900575432,
+        "y": 1428.3626356491518
     },
     {
         "alignment": "hostile",
@@ -513,7 +513,7 @@ const combatants = [
         "hidden": false,
         "imgSrc": "img/rat.jpeg",
         "name": "rat.0",
-        "x": 1033.5076001809136,
+        "x": 1066.5076001809136,
         "y": 1368.488180913614
     },
     {

@@ -106,7 +106,8 @@ const combatants = [
         "name": "ochrejelly.0",
         "size": "large",
         "x": 315.50760018091364,
-        "y": 1944.488180913614
+        "y": 1944.488180913614,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -290,7 +291,8 @@ const combatants = [
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.3",
         "x": 736.3347115716155,
-        "y": 1639.6372401717454
+        "y": 1639.6372401717454,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -298,7 +300,8 @@ const combatants = [
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.4",
         "x": 763.3347115716155,
-        "y": 1668.6372401717454
+        "y": 1668.6372401717454,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -306,7 +309,8 @@ const combatants = [
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.5",
         "x": 764.3347115716155,
-        "y": 1580.6372401717454
+        "y": 1580.6372401717454,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -314,7 +318,8 @@ const combatants = [
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.6",
         "x": 765.3347115716155,
-        "y": 1640.6372401717454
+        "y": 1640.6372401717454,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -322,7 +327,8 @@ const combatants = [
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.7",
         "x": 765.3347115716155,
-        "y": 1608.6372401717454
+        "y": 1608.6372401717454,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -330,7 +336,8 @@ const combatants = [
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.8",
         "x": 736.3347115716155,
-        "y": 1608.6372401717454
+        "y": 1608.6372401717454,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -338,7 +345,8 @@ const combatants = [
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.9",
         "x": 737.3347115716155,
-        "y": 1669.6372401717454
+        "y": 1669.6372401717454,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -386,7 +394,8 @@ const combatants = [
         "imgSrc": "img/flameskull.png",
         "name": "flameskull.0",
         "x": 1400.2712900575432,
-        "y": 1340.3626356491518
+        "y": 1340.3626356491518,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -394,7 +403,8 @@ const combatants = [
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.0",
         "x": 1368.2712900575432,
-        "y": 1400.6958876022768
+        "y": 1400.6958876022768,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -402,7 +412,8 @@ const combatants = [
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.1",
         "x": 1368.2712900575432,
-        "y": 1431.3626356491518
+        "y": 1431.3626356491518,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -410,7 +421,8 @@ const combatants = [
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.2",
         "x": 1338.2712900575432,
-        "y": 1399.3626356491518
+        "y": 1399.3626356491518,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -418,7 +430,8 @@ const combatants = [
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.3",
         "x": 1007.2712900575432,
-        "y": 1173.3626356491518
+        "y": 1173.3626356491518,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -426,7 +439,8 @@ const combatants = [
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.4",
         "x": 1066.2712900575432,
-        "y": 1186.3626356491518
+        "y": 1186.3626356491518,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -434,7 +448,8 @@ const combatants = [
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.5",
         "x": 1038.2712900575432,
-        "y": 1158.3626356491518
+        "y": 1158.3626356491518,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -442,7 +457,8 @@ const combatants = [
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.6",
         "x": 1036.2712900575432,
-        "y": 1187.3626356491518
+        "y": 1187.3626356491518,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -450,7 +466,8 @@ const combatants = [
         "imgSrc": "img/zombie.jpeg",
         "name": "zombie.7",
         "x": 1338.2712900575432,
-        "y": 1428.3626356491518
+        "y": 1428.3626356491518,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -522,7 +539,8 @@ const combatants = [
         "imgSrc": "img/stirge.jpg",
         "hidden": false,
         "x": 277.9452761674205,
-        "y": 1427.731887904978
+        "y": 1427.731887904978,
+        "defeated": true
     },
     {
         "name": "stirge.11",
@@ -530,7 +548,8 @@ const combatants = [
         "imgSrc": "img/stirge.jpg",
         "hidden": false,
         "x": 313.9452761674205,
-        "y": 1486.731887904978
+        "y": 1486.731887904978,
+        "defeated": true
     },
     {
         "name": "stirge.12",
@@ -538,7 +557,8 @@ const combatants = [
         "imgSrc": "img/stirge.jpg",
         "hidden": false,
         "x": 314.9452761674205,
-        "y": 1458.731887904978
+        "y": 1458.731887904978,
+        "defeated": true
     },
     {
         "name": "stirge.13",
@@ -546,7 +566,8 @@ const combatants = [
         "imgSrc": "img/stirge.jpg",
         "hidden": false,
         "x": 283.9452761674205,
-        "y": 1488.731887904978
+        "y": 1488.731887904978,
+        "defeated": true
     },
     {
         "name": "stirge.14",
@@ -554,7 +575,8 @@ const combatants = [
         "imgSrc": "img/stirge.jpg",
         "hidden": false,
         "x": 310.9452761674205,
-        "y": 1428.731887904978
+        "y": 1428.731887904978,
+        "defeated": true
     },
     {
         "name": "stirge.15",
@@ -562,7 +584,8 @@ const combatants = [
         "imgSrc": "img/stirge.jpg",
         "hidden": false,
         "x": 281.9452761674205,
-        "y": 1457.731887904978
+        "y": 1457.731887904978,
+        "defeated": true
     },
     {
         "name": "skeleton.9",
@@ -570,7 +593,8 @@ const combatants = [
         "imgSrc": "img/skeleton.png",
         "hidden": false,
         "x": 1246.1063407584752,
-        "y": 1548.3762341534962
+        "y": 1548.3762341534962,
+        "defeated": true
     },
     {
         "name": "skeleton.10",
@@ -578,7 +602,8 @@ const combatants = [
         "imgSrc": "img/skeleton.png",
         "hidden": false,
         "x": 1279.1063407584752,
-        "y": 1548.3762341534962
+        "y": 1548.3762341534962,
+        "defeated": true
     },
     {
         "name": "skeleton.11",
@@ -586,6 +611,7 @@ const combatants = [
         "imgSrc": "img/skeleton.png",
         "hidden": false,
         "x": 1277.1063407584752,
-        "y": 1518.3762341534962
+        "y": 1518.3762341534962,
+        "defeated": true
     }
 ]

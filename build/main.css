@@ -50,6 +50,10 @@ path {
     border-radius: 50%;
 }
 
+.defeated {
+    opacity: 0.4;
+}
+
 .friendly {
     border: 2px solid lightsteelblue;
 }

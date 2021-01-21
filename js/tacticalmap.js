@@ -42,7 +42,7 @@ const updateCombatants = () => {
     
     tokens.enter()
     .append('div')
-    .attr('class', d => `token ${d.alignment}`)
+    .attr('class', d => `token ${d.alignment}${d.defeated?' defeated':''}`)
     .style('background-image', d => `url(${d.imgSrc})`)
     .style('width', d => `${d.size === 'large' ? 2 * squarWidth : squarWidth}px`)
     .style('height', d => `${d.size === 'large' ? 2 * squarWidth : squarWidth}px`)
@@ -50,6 +50,8 @@ const updateCombatants = () => {
     .style('top', d => d.y + 'px')
     .call(drag());
     
+    tokens.classed('defeated', d => d.defeated === true);
+
     tokens.exit().remove();
 }
 

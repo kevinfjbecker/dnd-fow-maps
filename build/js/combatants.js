@@ -3,56 +3,56 @@ const combatants = [
         "name": "Random",
         "alignment": "friendly",
         "imgSrc": "img/random.jpeg",
-        "x": 1182,
-        "y": 1427,
+        "x": 1428,
+        "y": 1759,
         "hidden": false
     },
     {
         "name": "Belimore",
         "alignment": "friendly",
         "imgSrc": "img/belimore.jpg",
-        "x": 1098,
-        "y": 1369,
+        "x": 1403,
+        "y": 1783,
         "hidden": false
     },
     {
         "name": "Cire",
         "alignment": "friendly",
         "imgSrc": "img/cire.jpg",
-        "x": 1100,
-        "y": 1425,
+        "x": 1547,
+        "y": 1783,
         "hidden": false
     },
     {
         "name": "Panther",
         "alignment": "friendly",
         "imgSrc": "img/panther.jpg",
-        "x": 1125,
-        "y": 1308,
+        "x": 1444,
+        "y": 1727,
         "hidden": false
     },
     {
         "name": "Rew",
         "alignment": "friendly",
         "imgSrc": "img/rew.jpg",
-        "x": 1157,
-        "y": 1337,
+        "x": 1458,
+        "y": 1670,
         "hidden": false
     },
     {
         "name": "Speeder",
         "alignment": "friendly",
         "imgSrc": "img/speeder.jpg",
-        "x": 1125,
-        "y": 1338,
+        "x": 1486,
+        "y": 1730,
         "hidden": false
     },
     {
         "name": "Wolf",
         "alignment": "friendly",
         "imgSrc": "img/wolf.jpg",
-        "x": 1159,
-        "y": 1308,
+        "x": 1490,
+        "y": 1668,
         "hidden": false
     },
     {
@@ -263,27 +263,30 @@ const combatants = [
     },
     {
         "alignment": "hostile",
-        "hidden": true,
+        "hidden": false,
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.0",
-        "x": 1157.0633516608875,
-        "y": 1731.6339729173405
+        "x": 1280.0633516608875,
+        "y": 2002.6339729173405,
+        "defeated": true
     },
     {
         "alignment": "hostile",
-        "hidden": true,
+        "hidden": false,
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.1",
-        "x": 1160.0633516608875,
-        "y": 1790.6339729173405
+        "x": 1308.0633516608875,
+        "y": 2000.6339729173405,
+        "defeated": true
     },
     {
         "alignment": "hostile",
-        "hidden": true,
+        "hidden": false,
         "imgSrc": "img/ghoul.png",
         "name": "ghoul.2",
-        "x": 1099.0633516608875,
-        "y": 1789.6339729173405
+        "x": 1306.0633516608875,
+        "y": 1944.6339729173405,
+        "defeated": true
     },
     {
         "alignment": "hostile",
@@ -530,8 +533,8 @@ const combatants = [
         "hidden": false,
         "imgSrc": "img/rat.jpeg",
         "name": "rat.0",
-        "x": 1066.5076001809136,
-        "y": 1368.488180913614
+        "x": 1523.5076001809136,
+        "y": 1763.488180913614
     },
     {
         "name": "stirge.10",

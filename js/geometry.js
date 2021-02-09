@@ -1022,7 +1022,7 @@ const geometry = [
     {
         "name": "x.Corridor.3.6",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1081,
@@ -1182,7 +1182,7 @@ const geometry = [
     {
         "name": "6.SouthBarracks",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1033,
@@ -1213,7 +1213,7 @@ const geometry = [
     {
         "name": "x.Corridor.6.7.a",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1038,
@@ -1286,7 +1286,7 @@ const geometry = [
     {
         "name": "7.a.RuinedStoreroom",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1261,
@@ -1345,7 +1345,7 @@ const geometry = [
     {
         "name": "7.b.RuinedStoreroom",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1387,

@@ -72,7 +72,7 @@ function updateRoomName() {
 
 function getCurrentRoom() { return geometry[i]; } // todo support "selected room"
 
-updateRoomName();
+// updateRoomName(); // cruft?
 
 function updatePaths() {
     var pathData = showPaths && geometry || [];

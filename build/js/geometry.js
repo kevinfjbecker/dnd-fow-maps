@@ -120,7 +120,7 @@ const geometry = [
     {
         "name": "5.SecretPocket",
         "isComplete": true,
-        "isExplored": true,
+        "isExplored": false,
         "vertices": [
             [
                 1614,
@@ -147,7 +147,7 @@ const geometry = [
     {
         "name": "6.OldApproach",
         "isComplete": true,
-        "isExplored": true,
+        "isExplored": false,
         "vertices": [
             [
                 1403,
@@ -178,7 +178,7 @@ const geometry = [
     {
         "name": "7.GalleryofForlornNotes",
         "isComplete": true,
-        "isExplored": true,
+        "isExplored": false,
         "vertices": [
             [
                 1149,
@@ -264,7 +264,7 @@ const geometry = [
     {
         "name": "14.EnchantedWaterCache",
         "isComplete": true,
-        "isExplored": true,
+        "isExplored": false,
         "vertices": [
             [
                 1283,
@@ -349,7 +349,7 @@ const geometry = [
     {
         "name": "x.Corridor.15.25",
         "isComplete": true,
-        "isExplored": true,
+        "isExplored": false,
         "vertices": [
             [
                 1366,
@@ -388,7 +388,7 @@ const geometry = [
     {
         "name": "25.EmptyChamber",
         "isComplete": true,
-        "isExplored": true,
+        "isExplored": false,
         "vertices": [
             [
                 1774,

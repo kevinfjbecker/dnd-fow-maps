@@ -1,7 +1,7 @@
 
 ///////////////////////////////////////////////////////////// tacticalmap.js //
 
-const squarWidth = 30;
+const squarWidth = 24;
 
 // combatants array is defined in combatants.js
 

@@ -22,12 +22,12 @@ maskGroup.append('rect')
 
 var visibleMap = background.append("image")
     .classed('visibleArea', true)
-    .attr('xlink:href', 'https://media-waterdeep.cursecdn.com/attachments/2/797/tsc01.jpg')
+    .attr('xlink:href', 'https://media-waterdeep.cursecdn.com/attachments/3/46/lmop7.jpg')
     .attr('preserveAspectRatio', 'none')
     .attr('x', 0)
-    .attr('y', -2080)
-    .attr('height', '4160px')
-    .attr('width', '2008px');
+    .attr('y', 0)
+    .attr('height', '100%')
+    .attr('width', '100%');
 
 addFogOfWarLayer();
 

@@ -3,16 +3,16 @@ const combatants = [
         "name": "AscydiaAdderBanklin",
         "alignment": "friendly",
         "imgSrc": "img/AscydiaAdderBanklin.png",
-        "x": 1967,
-        "y": 1400,
+        "x": 1841,
+        "y": 1442,
         "hidden": false
     },
     {
         "name": "Belvias",
         "alignment": "friendly",
         "imgSrc": "img/Belvias.jpeg",
-        "x": 1467,
-        "y": 943,
+        "x": 1478,
+        "y": 933,
         "hidden": false
     },
     {
@@ -28,15 +28,15 @@ const combatants = [
         "alignment": "friendly",
         "imgSrc": "img/Florry.jpeg",
         "x": 1405,
-        "y": 961,
+        "y": 965,
         "hidden": false
     },
     {
         "name": "MoreAle",
         "alignment": "friendly",
         "imgSrc": "img/MoreAle.png",
-        "x": 1484,
-        "y": 913,
+        "x": 1513,
+        "y": 902,
         "hidden": false
     },
     {
@@ -51,8 +51,8 @@ const combatants = [
         "name": "SLAMMER",
         "alignment": "friendly",
         "imgSrc": "img/SLAMMER.jpeg",
-        "x": 1512,
-        "y": 971,
+        "x": 1510,
+        "y": 968,
         "hidden": false
     },
     {
@@ -124,16 +124,17 @@ const combatants = [
         "hidden": false,
         "imgSrc": "img/skeleton.jpeg",
         "name": "skeleton.1",
-        "x": 1596.153160198104,
-        "y": 999.1914365285152
+        "x": 1404.153160198104,
+        "y": 998.1914365285152,
+        "defeated": true
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/skeleton.jpeg",
         "name": "skeleton.2",
-        "x": 1662.153160198104,
-        "y": 1001.1914365285152,
+        "x": 1476.153160198104,
+        "y": 898.1914365285152,
         "defeated": true
     },
     {
@@ -141,23 +142,26 @@ const combatants = [
         "hidden": false,
         "imgSrc": "img/skeleton.jpeg",
         "name": "skeleton.3",
-        "x": 1649.153160198104,
-        "y": 918.1914365285152
+        "x": 1445.153160198104,
+        "y": 899.1914365285152,
+        "defeated": true
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/skeleton.jpeg",
         "name": "skeleton.4",
-        "x": 1661.153160198104,
-        "y": 957.1914365285152
+        "x": 1479.153160198104,
+        "y": 996.1914365285152,
+        "defeated": true
     },
     {
         "alignment": "hostile",
         "hidden": false,
         "imgSrc": "img/skeleton.jpeg",
         "name": "skeleton.5",
-        "x": 1601.153160198104,
-        "y": 930.1914365285152
+        "x": 1404.153160198104,
+        "y": 898.1914365285152,
+        "defeated": true
     }
 ]

@@ -712,7 +712,7 @@ const geometry = [
         ]
     },
     {
-        "name": "foo_a",
+        "name": "26.DryFountain",
         "isComplete": true,
         "isExplored": true,
         "vertices": [
@@ -735,7 +735,7 @@ const geometry = [
         ]
     },
     {
-        "name": "foo_b",
+        "name": "27.Sanctuary",
         "isComplete": true,
         "isExplored": true,
         "vertices": [
@@ -758,7 +758,7 @@ const geometry = [
         ]
     },
     {
-        "name": "foo_c",
+        "name": "x.Corridor.26.28",
         "isComplete": true,
         "isExplored": true,
         "vertices": [
@@ -783,12 +783,12 @@ const geometry = [
                 736
             ],
             [
-                1617,
-                676
+                1619,
+                659
             ],
             [
-                1696,
-                680
+                1694,
+                658
             ],
             [
                 1697,
@@ -833,6 +833,68 @@ const geometry = [
             [
                 1618,
                 937
+            ]
+        ]
+    },
+    {
+        "name": "28.InfestedCells",
+        "isComplete": true,
+        "isExplored": false,
+        "vertices": [
+            [
+                1543,
+                674
+            ],
+            [
+                1542,
+                457
+            ],
+            [
+                1770,
+                455
+            ],
+            [
+                1766,
+                674
+            ]
+        ]
+    },
+    {
+        "name": "29.DisabledTraps",
+        "isComplete": true,
+        "isExplored": false,
+        "vertices": [
+            [
+                1620,
+                498
+            ],
+            [
+                1620,
+                457
+            ],
+            [
+                1547,
+                456
+            ],
+            [
+                1548,
+                226
+            ],
+            [
+                1777,
+                227
+            ],
+            [
+                1775,
+                458
+            ],
+            [
+                1693,
+                457
+            ],
+            [
+                1693,
+                498
             ]
         ]
     }

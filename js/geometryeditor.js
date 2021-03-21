@@ -2,7 +2,6 @@
 ///////////////////////////////////////////////////// Geometry Editor //
 
 // todo: encapsulate variables!!!
-var i = geometry.length - 1;
 var state = 'stop'; // ready | reading | stop
 var showPaths = false;
 
@@ -14,7 +13,7 @@ function ready() {
 
 function stop() {
     state = 'stop';
-    geometry[i].isComplete = true;
+    currentRoom.isComplete = true;
     updatePaths();
     updateVertexHandles();
 }
@@ -25,25 +24,27 @@ var clickAction = {
         var coordinates = d3.mouse(element);
         var x = coordinates[0];
         var y = coordinates[1];
-
-        i = i + 1;
-        updateVertexHandles();
-
-        geometry.push({
+        
+        currentRoom = {
             name: 'your_name_here',
             isComplete: false,
             isExplored: true,
             vertices: [[x, y]]
-        });
+        };
         
+        updateVertexHandles();
+
+        geometry.push(currentRoom);
+
         state = 'reading';
     },
     'reading': function (element) {
+
         var coordinates = d3.mouse(element);
         var x = coordinates[0];
         var y = coordinates[1];
 
-        geometry[i].vertices.push([x, y]);
+        currentRoom.vertices.push([x, y]);
     },
     'stop': function () { }
 }
@@ -70,9 +71,7 @@ function updateRoomName() {
         .property("value", d => d.name)
 }
 
-function getCurrentRoom() { return geometry[i]; } // todo support "selected room"
-
-// updateRoomName(); // cruft?
+function getCurrentRoom() { return currentRoom; }
 
 function updatePaths() {
     var pathData = showPaths && geometry || [];
@@ -126,7 +125,7 @@ const dragHandle = (v) => {
 function updateVertexHandles() {
 
     handles = geometryEdit.selectAll('.vertex-handle')
-        .data(showPaths && geometry[i] && geometry[i].vertices || []);
+        .data(showPaths && currentRoom && currentRoom.vertices || []);
 
     handles.enter()
         .append('circle')
@@ -137,6 +136,10 @@ function updateVertexHandles() {
         .style('fill', '#fff')
         .style('stroke', 'green')
         .call(dragHandle());
+
+    handles
+        .attr('cx', v => v[0])
+        .attr('cy', v => v[1]);
 
     handles.exit().remove();
 }

@@ -62,3 +62,8 @@ const addMonsterToCurrentRoom = (name, imgFileType = 'jpg') => {
     });
     updateCombatants();
 }
+
+const removeCurrentToken = () => {
+    combatants.splice(combatants.indexOf(currentToken), 1);
+    updateCombatants();
+};

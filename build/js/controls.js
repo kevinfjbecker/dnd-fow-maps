@@ -18,9 +18,15 @@ const showControls = () => {
 ////////////////////////////////////////////////////////// Element Selection //
 
 d3.select('svg').on('click', () => {
-    currentRoom = geometry.filter(room => {
-        return d3.polygonContains(room.vertices, [d3.event.pageX, d3.event.pageY])
-    })[0];
+    if(state === 'stop') { // not editiing room geometry
+        currentRoom = geometry.filter(room => {
+            return d3.polygonContains(room.vertices, [d3.event.pageX, d3.event.pageY])
+        })[0];
+        document.getElementById('room-name').value =
+        currentRoom && currentRoom.name || '';
+        updatePaths();
+        updateVertexHandles();
+    }
 });
 
 // NB: Token Selection is in Token Dragging (as of writing)

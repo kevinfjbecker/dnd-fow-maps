@@ -7,6 +7,6 @@ function pathString(aa, stop) {
     }).join(' L ')} ${stop ? ' z' : ''}`;
 }
 
-let currentRoom = undefined; // Global Varialble =c@
+var currentRoom = undefined; // Global Varialble =c@
 
-let currentToken = undefined; // Global Variable =c@
+var currentToken = undefined; // Global Variable =c@

@@ -58,7 +58,7 @@ const combatants = [
     {
         "alignment": "boss",
         "hidden": false,
-        "imgSrc": "img/kobold.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/378/35/35/636252780449831836.jpeg",
         "name": "Meepo",
         "x": 1440.8419466216153,
         "y": 966.6702855402
@@ -74,7 +74,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/kobold.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/378/35/35/636252780449831836.jpeg",
         "name": "kobold.0",
         "x": 658.137681606725,
         "y": 983.072334049753
@@ -82,7 +82,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/kobold.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/378/35/35/636252780449831836.jpeg",
         "name": "kobold.1",
         "x": 662.137681606725,
         "y": 917.072334049753
@@ -90,7 +90,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/kobold.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/378/35/35/636252780449831836.jpeg",
         "name": "kobold.2",
         "x": 587.137681606725,
         "y": 985.072334049753
@@ -98,7 +98,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/kobold.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/378/35/35/636252780449831836.jpeg",
         "name": "kobold.3",
         "x": 589.137681606725,
         "y": 919.072334049753
@@ -106,7 +106,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/kobold.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/378/35/35/636252780449831836.jpeg",
         "name": "kobold.4",
         "x": 336.28587344028523,
         "y": 910.2379679144387
@@ -114,7 +114,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/kobold.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/378/35/35/636252780449831836.jpeg",
         "name": "kobold.5",
         "x": 332.28587344028523,
         "y": 992.2379679144387
@@ -122,7 +122,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/skeleton.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/471/35/35/636376294572614519.jpeg",
         "name": "skeleton.1",
         "x": 1404.153160198104,
         "y": 998.1914365285152,
@@ -131,7 +131,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/skeleton.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/471/35/35/636376294572614519.jpeg",
         "name": "skeleton.2",
         "x": 1476.153160198104,
         "y": 898.1914365285152,
@@ -140,7 +140,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/skeleton.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/471/35/35/636376294572614519.jpeg",
         "name": "skeleton.3",
         "x": 1445.153160198104,
         "y": 899.1914365285152,
@@ -149,7 +149,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/skeleton.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/471/35/35/636376294572614519.jpeg",
         "name": "skeleton.4",
         "x": 1479.153160198104,
         "y": 996.1914365285152,
@@ -158,7 +158,7 @@ const combatants = [
     {
         "alignment": "hostile",
         "hidden": false,
-        "imgSrc": "img/skeleton.jpeg",
+        "imgSrc": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/471/35/35/636376294572614519.jpeg",
         "name": "skeleton.5",
         "x": 1404.153160198104,
         "y": 898.1914365285152,

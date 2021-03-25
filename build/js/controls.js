@@ -55,7 +55,7 @@ const addMonsterToCurrentRoom = (name, imgFileType = 'jpg') => {
     combatants.push({
         alignment: "hostile",
         hidden: false,
-        imgSrc: `img/${name}.${imgFileType}`,
+        imgSrc: tokenSet[name] || `img/${name}.${imgFileType}`,
         name: `${name}.${nextMonsterNameSuffix(name)}`,
         x: c[0],
         y: c[1]

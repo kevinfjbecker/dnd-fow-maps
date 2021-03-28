@@ -50,7 +50,7 @@ const updateCombatants = () => {
     .style('top', d => d.y + 'px')
     .call(drag());
     
-    tokens.classed('defeated', d => d.defeated === true);
+    tokens.attr('class', d => `token ${d.alignment}${d.defeated?' defeated':''}`);
 
     tokens.exit().remove();
 }

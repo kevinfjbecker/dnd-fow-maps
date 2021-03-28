@@ -645,7 +645,7 @@ const geometry = [
     {
         "name": "lowerKoboldHall_d",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 423,
@@ -924,7 +924,7 @@ const geometry = [
     {
         "name": "x.EmptyRoom.31",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1402,
@@ -947,7 +947,7 @@ const geometry = [
     {
         "name": "31.CaltropHall",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1403,
@@ -970,7 +970,7 @@ const geometry = [
     {
         "name": "32.GoblinGate",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1355,
@@ -993,7 +993,7 @@ const geometry = [
     {
         "name": "33.PracticeRange",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1221,
@@ -1032,7 +1032,7 @@ const geometry = [
     {
         "name": "34.GoblinStockade",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 993,
@@ -1055,7 +1055,7 @@ const geometry = [
     {
         "name": "38.GoblinPantry",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1040,
@@ -1078,7 +1078,7 @@ const geometry = [
     {
         "name": "35.TrappedCorridor",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 1075,
@@ -1170,7 +1170,7 @@ const geometry = [
     {
         "name": "39.DragonHaze",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 641,
@@ -1193,7 +1193,7 @@ const geometry = [
     {
         "name": "37.TrophyRoom",
         "isComplete": true,
-        "isExplored": false,
+        "isExplored": true,
         "vertices": [
             [
                 924.3333129882812,

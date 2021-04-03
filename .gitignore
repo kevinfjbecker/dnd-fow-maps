@@ -1,0 +1,6 @@
+
+# the following are just used for linting at this point
+node_modules
+.eslintrc.js
+package-lock.json
+package.json

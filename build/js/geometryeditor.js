@@ -1,147 +1,149 @@
 
-///////////////////////////////////////////////////// Geometry Editor //
+// /////////////////////////////////////////////////// Geometry Editor //
 
 // todo: encapsulate variables!!!
-var state = 'stop'; // ready | reading | stop
-var showPaths = false;
+let state = 'stop'; // ready | reading | stop
+let showPaths = false;
 
-var geometryEdit = wrapper.append('g').classed('geometry-edit', true); // cruft?
+const geometryEdit = wrapper
+    .append('g')
+    .classed('geometry-edit', true); // cruft?
 
-function ready() {
-    state = 'ready';
-}
+// eslint-disable-next-line no-unused-vars
+const ready = () => {
+  state = 'ready';
+};
 
-function stop() {
-    state = 'stop';
-    currentRoom.isComplete = true;
-    updatePaths();
+// eslint-disable-next-line no-unused-vars
+const stop = () => {
+  state = 'stop';
+  currentRoom.isComplete = true;
+  updatePaths();
+  updateVertexHandles();
+};
+
+const clickAction = {
+  'ready': function(element) {
+    const coordinates = d3.mouse(element);
+    const x = coordinates[0];
+    const y = coordinates[1];
+
+    currentRoom = {
+      name: 'your_name_here',
+      isComplete: false,
+      isExplored: true,
+      vertices: [[x, y]],
+    };
+
     updateVertexHandles();
-}
 
-var clickAction = {
-    'ready': function (element) {
+    geometry.push(currentRoom);
 
-        var coordinates = d3.mouse(element);
-        var x = coordinates[0];
-        var y = coordinates[1];
-        
-        currentRoom = {
-            name: 'your_name_here',
-            isComplete: false,
-            isExplored: true,
-            vertices: [[x, y]]
-        };
-        
-        updateVertexHandles();
+    state = 'reading';
+  },
+  'reading': function(element) {
+    const coordinates = d3.mouse(element);
+    const x = coordinates[0];
+    const y = coordinates[1];
 
-        geometry.push(currentRoom);
+    currentRoom.vertices.push([x, y]);
+  },
+  'stop': function() { },
+};
 
-        state = 'reading';
-    },
-    'reading': function (element) {
-
-        var coordinates = d3.mouse(element);
-        var x = coordinates[0];
-        var y = coordinates[1];
-
-        currentRoom.vertices.push([x, y]);
-    },
-    'stop': function () { }
-}
+const clickHandler = () => {
+  clickAction[state](this);
+  updatePaths();
+  updateVertexHandles();
+};
 
 wrapper.on('click', clickHandler);
 
-function clickHandler() {
+// eslint-disable-next-line no-unused-vars
+const setRoomName = () => {
+  const name = d3.select('#room-name').property('value');
+  getCurrentRoom().name = name;
+  updateRoomName();
+};
 
-    clickAction[state](this);
-    updatePaths();
-    updateVertexHandles();
+const updateRoomName = () => {
+  d3.select('#room-name')
+      .datum(getCurrentRoom)
+      .property('value', (d) => d.name);
+};
 
-}
+const getCurrentRoom = () => {
+  return currentRoom;
+};
 
-function setRoomName() {
-    const name = d3.select('#room-name').property("value");
-    getCurrentRoom().name = name;
-    updateRoomName();
-}
+const updatePaths = () => {
+  const pathData = showPaths && geometry || [];
+  const paths = geometryEdit.selectAll('path')
+      .data(pathData);
 
-function updateRoomName() {
-    d3.select('#room-name')
-        .datum(getCurrentRoom)
-        .property("value", d => d.name)
-}
-
-function getCurrentRoom() { return currentRoom; }
-
-function updatePaths() {
-    var pathData = showPaths && geometry || [];
-    var paths = geometryEdit.selectAll('path')
-        .data(pathData);
-
-    paths.enter().append('path')
-        .attr('d', function (d) {
-            return pathString(d.vertices, state === 'stop');
-        })
-
-    paths.attr('d', function (d) {
+  paths.enter().append('path')
+      .attr('d', function(d) {
         return pathString(d.vertices, state === 'stop');
-    });
+      });
 
-    paths.exit().remove();
+  paths.attr('d', function(d) {
+    return pathString(d.vertices, state === 'stop');
+  });
 
-}
+  paths.exit().remove();
+};
 
 updatePaths();
 
+// eslint-disable-next-line no-unused-vars
 const togglePaths = () => {
-    showPaths = !showPaths;
-    updatePaths();
-    updateVertexHandles();
+  showPaths = !showPaths;
+  updatePaths();
+  updateVertexHandles();
 };
 
-function printGeometry() { // cruft?
-    console.log(JSON.stringify(geometry, null, 4));
-}
+// eslint-disable-next-line no-unused-vars
+const printGeometry = () => { // cruft?
+  console.log(JSON.stringify(geometry, null, 4));
+};
 
 const dragHandle = (v) => {
+  const dragstarted = (v) => { };
 
-    function dragstarted(v) { }
+  const dragged = (v) => {
+    d3.select(this)
+        .attr('cx', (v[0] = d3.event.x))
+        .attr('cy', (v[1] = d3.event.y));
+    updatePaths();
+  };
 
-    function dragged(v) {
-        d3.select(this)
-            .attr("cx", (v[0] = d3.event.x))
-            .attr("cy", (v[1] = d3.event.y));
-        updatePaths();
-    }
+  const dragended = (v) => { };
 
-    function dragended(v) { }
+  return d3.drag()
+      .on('start', dragstarted)
+      .on('drag', dragged)
+      .on('end', dragended);
+};
 
-    return d3.drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended);
-}
+const updateVertexHandles = () =>{
+  handles = geometryEdit.selectAll('.vertex-handle')
+      .data(showPaths && currentRoom && currentRoom.vertices || []);
 
-function updateVertexHandles() {
+  handles.enter()
+      .append('circle')
+      .classed('vertex-handle', true)
+      .attr('cx', (v) => v[0])
+      .attr('cy', (v) => v[1])
+      .attr('r', 5)
+      .style('fill', '#fff')
+      .style('stroke', 'green')
+      .call(dragHandle());
 
-    handles = geometryEdit.selectAll('.vertex-handle')
-        .data(showPaths && currentRoom && currentRoom.vertices || []);
+  handles
+      .attr('cx', (v) => v[0])
+      .attr('cy', (v) => v[1]);
 
-    handles.enter()
-        .append('circle')
-        .classed('vertex-handle', true)
-        .attr('cx', v => v[0])
-        .attr('cy', v => v[1])
-        .attr('r', 5)
-        .style('fill', '#fff')
-        .style('stroke', 'green')
-        .call(dragHandle());
-
-    handles
-        .attr('cx', v => v[0])
-        .attr('cy', v => v[1]);
-
-    handles.exit().remove();
-}
+  handles.exit().remove();
+};
 
 updateVertexHandles();

@@ -20,14 +20,15 @@ maskGroup.append('rect')
     .style('opacity', 1.0)
     .style('fill', '#fff');
 
-var visibleMap = background.append("image")
+background.append("image")
+    .datum(mapDetails)
     .classed('visibleArea', true)
-    .attr('xlink:href', 'https://media-waterdeep.cursecdn.com/attachments/2/797/tsc01.jpg')
+    .attr('xlink:href', d => d.xlinkHref)
     .attr('preserveAspectRatio', 'none')
-    .attr('x', 0)
-    .attr('y', -2080)
-    .attr('height', '4160px')
-    .attr('width', '2008px');
+    .attr('x', d => d.xOffset)
+    .attr('y', d => d.yOffset)
+    .attr('height', d => d.height)
+    .attr('width', d => d.width);
 
 addFogOfWarLayer();
 

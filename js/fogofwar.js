@@ -1,17 +1,24 @@
 
-//////////////////////////////////////////////////////////////// fogofwar.js //
+// ////////////////////////////////////////////////////////////// fogofwar.js //
 
-//(function setupMap() {
+const addFogOfWarLayer = () => {
+  background.append('rect')
+      .attr('id', 'fog-of-war')
+      .attr('width', '100%')
+      .attr('height', '100%')
+      .attr('mask', 'url(#map-mask)');
+};
+
+// (function setupMap() {
 // 0. setup groups
 // ----------------------------------
-var svg = d3.select('svg');
-var wrapper = svg.append('g').classed('map-wrapper', true);
-var background = wrapper.append('g').classed('background', true);
-var characters = wrapper.append('g').classed('characters', true); // cruft?
+const svg = d3.select('svg');
+const wrapper = svg.append('g').classed('map-wrapper', true);
+const background = wrapper.append('g').classed('background', true);
 
 // 1. Setup the mask
 // ----------------------------------
-var maskGroup = svg.append('mask')
+const maskGroup = svg.append('mask')
     .attr('id', 'map-mask');
 
 maskGroup.append('rect')
@@ -20,58 +27,50 @@ maskGroup.append('rect')
     .style('opacity', 1.0)
     .style('fill', '#fff');
 
-background.append("image")
+background.append('image')
     .datum(mapDetails)
     .classed('visibleArea', true)
-    .attr('xlink:href', d => d.xlinkHref)
+    .attr('xlink:href', (d) => d.xlinkHref)
     .attr('preserveAspectRatio', 'none')
-    .attr('x', d => d.xOffset)
-    .attr('y', d => d.yOffset)
-    .attr('height', d => d.height)
-    .attr('width', d => d.width);
+    .attr('x', (d) => d.xOffset)
+    .attr('y', (d) => d.yOffset)
+    .attr('height', (d) => d.height)
+    .attr('width', (d) => d.width);
 
 addFogOfWarLayer();
 
 // 3. create a masked path to show visible nodes
 // ----------------------------------
 
-function updateFog() {
+const updateFog = () => {
+  const masks = maskGroup.selectAll('.break-fog')
+      .data(geometry.filter((r) => r.isExplored === true));
 
-    var masks = maskGroup.selectAll('.break-fog')
-        .data(geometry.filter(r => r.isExplored === true));
+  masks.enter()
+      .append('path')
+      .classed('break-fog', true)
+      .attr('d', (d) => pathString(d.vertices, true))
+      .style('fill', '#000000')
+      .style('opacity', 1.0)
+      .attr('filter', 'url(#filter-map)');
 
-    masks.enter()
-        .append('path')
-        .classed('break-fog', true)
-        .attr('d', d => pathString(d.vertices, true))
-        .style('fill', '#000000')
-        .style('opacity', 1.0)
-        .attr('filter', 'url(#filter-map)');
+  masks.attr('d', (d) => pathString(d.vertices, true));
 
-    masks.attr('d', d => pathString(d.vertices, true));
-
-    masks.exit().remove();
-
+  masks.exit().remove();
 };
 
-// Call it immediately 
+// Call it immediately
 updateFog();
 
-function toggleFogOfWar() {
-    var fow = d3.select('#fog-of-war');
-    if (fow.empty()) {
-        addFogOfWarLayer();
-    } else {
-        fow.remove();
-    }
-}
+// eslint-disable-next-line no-unused-vars
+const toggleFogOfWar = () => {
+  const fow = d3.select('#fog-of-war');
+  if (fow.empty()) {
+    addFogOfWarLayer();
+  } else {
+    fow.remove();
+  }
+};
 
-function addFogOfWarLayer() {
-    background.append('rect')
-        .attr('id', 'fog-of-war')
-        .attr('width', '100%')
-        .attr('height', '100%')
-        .attr('mask', 'url(#map-mask)');
-}
 
-//})();
+// })();

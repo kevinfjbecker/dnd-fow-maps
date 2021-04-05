@@ -1,76 +1,89 @@
 
-// ////////////////////////////////////////////////////////////// controls.js //
+// ///////////////////////////////////////////////////////////// controls.js //
 
-// ////////////////////////////////////////////////////////////////// Utility //
+dndFowMap.controls = (function(dfm) {
+  // //////////////////////////////////////////////////////////////// Import //
 
-const centerOfRoom = (room) => d3.polygonCentroid(room.vertices);
+  const updateCombatants = dfm.tacticalMap.updateCombatants;
+  const updatePaths = dfm.geometryEditor.updatePaths;
+  const updateVertexHandles = dfm.geometryEditor.updateVertexHandles;
+  const getWanderingMonsters = dfm.wanderingMonster.getWanderingMonsters;
 
-// //////////////////////////////////////////////////////////// Form Controls //
+  // /////////////////////////////////////////////////////////////// Utility //
 
-// eslint-disable-next-line no-unused-vars
-const hideControls = () => {
-  document.querySelector('#control-panel').setAttribute('hidden', true);
-};
+  const centerOfRoom = (room) => d3.polygonCentroid(room.vertices);
 
-// eslint-disable-next-line no-unused-vars
-const showControls = () => {
-  document.querySelector('#control-panel').removeAttribute('hidden');
-};
+  // ///////////////////////////////////////////////////////// Form Controls //
 
-// //////////////////////////////////////////////////////// Element Selection //
+  const hideControls = () => {
+    document.querySelector('#control-panel').setAttribute('hidden', true);
+  };
 
-d3.select('svg').on('click', () => {
-  if (state === 'stop') { // not editiing room geometry
-    currentRoom = geometry.filter((room) => {
-      return d3.polygonContains(room.vertices,
-          [d3.event.pageX, d3.event.pageY]);
-    })[0];
-    document.getElementById('room-name').value =
-        currentRoom && currentRoom.name || '';
-    updatePaths();
-    updateVertexHandles();
-  }
-});
+  const showControls = () => {
+    document.querySelector('#control-panel').removeAttribute('hidden');
+  };
 
-// NB: Token Selection is in Token Dragging (as of writing)
+  // ///////////////////////////////////////////////////// Element Selection //
 
-// /////////////////////////////////////////////////////// Wandering Monsters //
-
-// assumes the naming pattern: {name}.{index}
-const nextMonsterNameSuffix = (name) =>
-  combatants.filter((c) => c.name.split('.')[0] === name).length;
-
-// eslint-disable-next-line no-unused-vars
-const addWanderingMonstersToCurrentRoom = () => {
-  if (!currentRoom) {
-    return;
-  }
-  const c = centerOfRoom(currentRoom);
-  const monsters = getWanderingMonsters(c[0], c[1]);
-  const indexOffset = nextMonsterNameSuffix(monsters[0].name);
-  monsters.forEach((m, i) => m.name = `${m.name}.${i + indexOffset}`);
-  combatants.push(...monsters);
-  updateCombatants();
-};
-
-// ///////////////////////////////////////////////// Populate Monsters & NPCs //
-
-// eslint-disable-next-line no-unused-vars
-const addMonsterToCurrentRoom = (name, imgFileType = 'jpg') => {
-  const c = centerOfRoom(currentRoom);
-  combatants.push({
-    alignment: 'hostile',
-    hidden: false,
-    imgSrc: tokenSet[name] || `img/${name}.${imgFileType}`,
-    name: `${name}.${nextMonsterNameSuffix(name)}`,
-    x: c[0],
-    y: c[1],
+  d3.select('svg').on('click', () => {
+    if (dfm.state.geometryEditorState === 'stop') { // NOT editiing geometry
+      dfm.state.currentRoom = dfm.state.geometry.filter((room) => {
+        return d3.polygonContains(room.vertices,
+            [d3.event.pageX, d3.event.pageY]);
+      })[0];
+      document.getElementById('room-name').value =
+      dfm.state.currentRoom && dfm.state.currentRoom.name || '';
+      updatePaths();
+      updateVertexHandles();
+    }
   });
-  updateCombatants();
-};
 
-// eslint-disable-next-line no-unused-vars
-const removeCurrentToken = () => {
-  combatants.splice(combatants.indexOf(currentToken), 1);
-  updateCombatants();
-};
+  // NB: Token Selection is in Token Dragging (as of writing)
+
+  // //////////////////////////////////////////////////// Wandering Monsters //
+
+  // assumes the naming pattern: {name}.{index}
+  const nextMonsterNameSuffix = (name) =>
+    dfm.state.combatants.filter((c) => c.name.split('.')[0] === name).length;
+
+  const addWanderingMonstersToCurrentRoom = () => {
+    if (!dfm.state.currentRoom) {
+      return;
+    }
+    const c = centerOfRoom(dfm.state.currentRoom);
+    const monsters = getWanderingMonsters(c[0], c[1]);
+    const indexOffset = nextMonsterNameSuffix(monsters[0].name);
+    monsters.forEach((m, i) => m.name = `${m.name}.${i + indexOffset}`);
+    dfm.state.combatants.push(...monsters);
+    updateCombatants();
+  };
+
+  // ////////////////////////////////////////////// Populate Monsters & NPCs //
+
+  const addMonsterToCurrentRoom = (name, imgFileType = 'jpg') => {
+    const c = centerOfRoom(dfm.state.currentRoom);
+    dfm.state.combatants.push({
+      alignment: 'hostile',
+      hidden: false,
+      imgSrc: dfm.state.tokenSet[name] || `img/${name}.${imgFileType}`,
+      name: `${name}.${nextMonsterNameSuffix(name)}`,
+      x: c[0],
+      y: c[1],
+    });
+    updateCombatants();
+  };
+
+  const removeCurrentToken = () => {
+    dfm.state.combatants.splice(
+        dfm.state.combatants.indexOf(dfm.state.currentToken), 1);
+    updateCombatants();
+  };
+
+  return {
+    addWanderingMonstersToCurrentRoom: addWanderingMonstersToCurrentRoom,
+    addMonsterToCurrentRoom: addMonsterToCurrentRoom,
+    hideControls: hideControls,
+    removeCurrentToken: removeCurrentToken,
+    showControls: showControls,
+  };
+})(dndFowMap);

@@ -1,15 +1,27 @@
+/* eslint-disable no-unused-vars */ // command line functions
 
-// in geometryeditor.js
-// in fogofwar.js
-// eslint-disable-next-line no-unused-vars
-const pathString = (aa, stop) => {
-  return `M ${aa.map(function(a) {
-    return a.join(' ');
-  }).join(' L ')} ${stop ? ' z' : ''}`;
-};
+const {
+  addMonsterToCurrentRoom,
+  addWanderingMonstersToCurrentRoom,
+  hideControls,
+  removeCurrentToken,
+  showControls,
+} = dndFowMap.controls;
 
-// eslint-disable-next-line no-unused-vars, prefer-const
-let currentRoom = undefined; // Global Varialble =c@
+const {
+  toggleFogOfWar,
+  updateFog,
+} = dndFowMap.fogOfWar;
 
-// eslint-disable-next-line prefer-const, no-unused-vars
-let currentToken = undefined; // Global Variable =c@
+const {
+  printGeometry,
+  ready,
+  setRoomName,
+  stop,
+  togglePaths,
+} = dndFowMap.geometryEditor;
+
+const {
+  printCombatants,
+  updateCombatants,
+} = dndFowMap.tacticalMap;

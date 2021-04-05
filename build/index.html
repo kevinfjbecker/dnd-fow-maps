@@ -30,31 +30,43 @@
             <input id="room-name" type="text"></input>
             <button id=set-roomname onclick="setRoomName()">Set Name</button>
         </div>
-        <div id="global-cotrols"></div> 
+        <div id="global-cotrols"></div>
         <button id=ready-btn onclick="ready()">Ready</button>
         <button id=stop-btn onclick="stop()">Stop</button>
         <button id=toggle-paths-btn onclick="togglePaths()">Paths</button>
         <button id=toggle-fow-btn onclick="toggleFogOfWar()">Fog of War</button>
-        <button id=save-geometry-btn onclick="console.save(geometry, 'geometry.js', 'geometry')">Save Geometry</button>
-        <button id=save-combatants-btn onclick="console.save(combatants, 'combatants.js', 'combatants')">Save Combatants</button>
+        <button id=save-geometry-btn onclick="console.save(dndFowMap.state.geometry, 'geometry.js', 'dndFowMap.state.geometry')">
+            Save Geometry
+        </button>
+        <button id=save-combatants-btn
+            onclick="console.save(dndFowMap.state.combatants, 'combatants.js', 'dndFowMap.state.combatants')">
+            Save Combatants
+        </button>
     </div>
 
     <script src="https://d3js.org/d3.v5.js"></script>
 
+    <!-- Gobal module: "dfm" (dnd fow map) -->
+    <script src="js/dndfowmap.js"></script>
+
     <!-- Data -->
+    <!-- state tree -->
+    <script src="js/state.js"></script>
+    <!-- augment the state tree with these -->
     <script src="js/combatants.js"></script>
     <script src="js/geometry.js"></script>
     <script src="js/tokenset.js"></script>
     <script src="js/mapdetails.js"></script>
 
     <!-- Procedural -->
-    <script src="js/main.js"></script>
+    <script src="js/pathstring.js"></script>
     <script src="js/fogofwar.js"></script>
     <script src="js/geometryeditor.js"></script>
     <script src="js/tacticalmap.js"></script>
-    <script src="js/util.js"></script>
+    <script src="js/consolesave.js"></script>
     <script src="js/wanderingmonster.js"></script>
     <script src="js/controls.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 

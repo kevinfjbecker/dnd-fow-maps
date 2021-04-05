@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 
 // /////////////////////////////////////////////////////////// tacticalmap.js //
 
@@ -5,18 +6,18 @@ const squarWidth = mapDetails.squarWidth;
 
 // combatants array is defined in combatants.js
 
-const drag = () => {
-  const dragstarted = (d) => {
+function drag() {
+  function dragstarted(d) {
     d3.select(this).raise().style('border-width', `${3}px`);
-  };
+  }
 
-  const dragged = (d) => {
+  function dragged(d) {
     d3.select(this)
         .style('left', (d.x = d3.event.x) + 'px')
         .style('top', (d.y = d3.event.y) + 'px');
-  };
+  }
 
-  const dragended = (d) => {
+  function dragended(d) {
     d3.select(this).style('border-width', `${2}px`);
 
     currentToken = d;
@@ -32,7 +33,7 @@ const drag = () => {
       .on('start', dragstarted)
       .on('drag', dragged)
       .on('end', dragended);
-};
+}
 
 const updateCombatants = () => {
   const tokens = d3.select('#game-board').selectAll('.token')

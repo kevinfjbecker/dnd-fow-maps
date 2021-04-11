@@ -4,6 +4,7 @@
 dndFowMap.tacticalMap = (function(dfm) {
   const squarWidth = dfm.state.mapDetails.squarWidth;
   const updateFog = dfm.fogOfWar.updateFog;
+  const tokenSet = dfm.state.tokenSet;
 
   /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
   function drag() {
@@ -51,7 +52,7 @@ dndFowMap.tacticalMap = (function(dfm) {
     tokens.enter()
         .append('div')
         .attr('class', tokenClass)
-        .style('background-image', (d) => `url(${d.imgSrc})`)
+        .style('background-image', (d) => `url(${tokenSet[d.tokenRef]})`)
         .style('width', (d) =>
           `${d.size === 'large' ? 2 * squarWidth : squarWidth}px`)
         .style('height', (d) =>

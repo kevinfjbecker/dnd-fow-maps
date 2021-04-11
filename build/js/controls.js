@@ -65,12 +65,15 @@ dndFowMap.controls = (function(dfm) {
     dfm.state.combatants.push({
       alignment: 'hostile',
       hidden: false,
-      imgSrc: dfm.state.tokenSet[name] || `img/${name}.${imgFileType}`,
+      tokenRef: name.toLowerCase(),
       name: `${name}.${nextMonsterNameSuffix(name)}`,
       x: c[0],
       y: c[1],
     });
     updateCombatants();
+    console.log(
+        dfm.state.tokenSet[name] || `img/${name}.${imgFileType}`,
+    ); // debug
   };
 
   const removeCurrentToken = () => {

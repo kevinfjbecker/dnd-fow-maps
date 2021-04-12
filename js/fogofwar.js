@@ -29,7 +29,7 @@ dndFowMap.fogOfWar = (function(dfm) {
       .style('fill', '#fff');
 
   background.append('image')
-      .datum(dfm.state.mapDetails)
+      .datum(dfm.store.getState().mapDetails)
       .classed('visibleArea', true)
       .attr('xlink:href', (d) => d.xlinkHref)
       .attr('preserveAspectRatio', 'none')
@@ -45,7 +45,8 @@ dndFowMap.fogOfWar = (function(dfm) {
 
   const updateFog = () => {
     const masks = maskGroup.selectAll('.break-fog')
-        .data(dfm.state.geometry.filter((r) => r.isExplored === true));
+        .data(dfm.store.getState().geometry
+            .filter((r) => r.isExplored === true));
 
     masks.enter()
         .append('path')

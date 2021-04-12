@@ -1,7 +1,7 @@
-dndFowMap.state = (function() {
+dndFowMap.staticState = (function() {
   return {
-    currentRoom: undefined,
-    currentToken: undefined,
+    currentRoom: null,
+    currentToken: null,
     geometryEditorState: 'stop',
     geometryEditorShowPaths: false,
   };

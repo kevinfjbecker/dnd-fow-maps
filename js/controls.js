@@ -8,6 +8,8 @@ dndFowMap.controls = (function(dfm) {
   const updatePaths = dfm.geometryEditor.updatePaths;
   const updateVertexHandles = dfm.geometryEditor.updateVertexHandles;
   const getWanderingMonsters = dfm.wanderingMonster.getWanderingMonsters;
+  const store = dfm.store;
+  const addSetCurrentRoomAction = dfm.actions.addSetCurrentRoomAction;
 
   // /////////////////////////////////////////////////////////////// Utility //
 
@@ -25,17 +27,22 @@ dndFowMap.controls = (function(dfm) {
 
   // ///////////////////////////////////////////////////// Element Selection //
 
+  const getRoomHit = (xy) => store.getState().geometry.filter((room) =>
+    d3.polygonContains(room.vertices, [d3.event.pageX, d3.event.pageY]),
+  )[0] || null;
+
   d3.select('svg').on('click', () => {
-    if (dfm.state.geometryEditorState === 'stop') { // NOT editiing geometry
-      dfm.state.currentRoom = dfm.state.geometry.filter((room) => {
-        return d3.polygonContains(room.vertices,
-            [d3.event.pageX, d3.event.pageY]);
-      })[0];
-      document.getElementById('room-name').value =
-      dfm.state.currentRoom && dfm.state.currentRoom.name || '';
-      updatePaths();
-      updateVertexHandles();
+    if (dfm.store.getState().geometryEditorState === 'stop') { // NOT editiing
+      const room = (getRoomHit([d3.event.pageX, d3.event.pageY]));
+      store.dispatch(addSetCurrentRoomAction(room && room.name || null));
     }
+  });
+
+  store.subscribe(()=>{
+    document.getElementById('room-name').value =
+    store.getState().currentRoom && store.getState().currentRoom.name || '';
+    updatePaths();
+    updateVertexHandles();
   });
 
   // NB: Token Selection is in Token Dragging (as of writing)
@@ -44,25 +51,26 @@ dndFowMap.controls = (function(dfm) {
 
   // assumes the naming pattern: {name}.{index}
   const nextMonsterNameSuffix = (name) =>
-    dfm.state.combatants.filter((c) => c.name.split('.')[0] === name).length;
+    store.getState().combatants
+        .filter((c) => c.name.split('.')[0] === name).length;
 
   const addWanderingMonstersToCurrentRoom = () => {
-    if (!dfm.state.currentRoom) {
+    if (!store.getState().currentRoom) {
       return;
     }
-    const c = centerOfRoom(dfm.state.currentRoom);
+    const c = centerOfRoom(store.getState().currentRoom);
     const monsters = getWanderingMonsters(c[0], c[1]);
     const indexOffset = nextMonsterNameSuffix(monsters[0].name);
     monsters.forEach((m, i) => m.name = `${m.name}.${i + indexOffset}`);
-    dfm.state.combatants.push(...monsters);
+    store.getState().combatants.push(...monsters);
     updateCombatants();
   };
 
   // ////////////////////////////////////////////// Populate Monsters & NPCs //
 
   const addMonsterToCurrentRoom = (name, imgFileType = 'jpg') => {
-    const c = centerOfRoom(dfm.state.currentRoom);
-    dfm.state.combatants.push({
+    const c = centerOfRoom(store.getState().currentRoom);
+    store.getState().combatants.push({
       alignment: 'hostile',
       hidden: false,
       tokenRef: name.toLowerCase(),
@@ -71,14 +79,11 @@ dndFowMap.controls = (function(dfm) {
       y: c[1],
     });
     updateCombatants();
-    console.log(
-        dfm.state.tokenSet[name] || `img/${name}.${imgFileType}`,
-    ); // debug
   };
 
   const removeCurrentToken = () => {
-    dfm.state.combatants.splice(
-        dfm.state.combatants.indexOf(dfm.state.currentToken), 1);
+    store.getState().combatants.splice(
+        store.getState().combatants.indexOf(store.getState().currentToken), 1);
     updateCombatants();
   };
 

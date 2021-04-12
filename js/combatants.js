@@ -1,4 +1,4 @@
-dndFowMap.state.combatants = [
+dndFowMap.staticState.combatants = [
   {
     'name': 'AscydiaAdderBanklin',
     'alignment': 'friendly',

@@ -35,11 +35,12 @@
         <button id=stop-btn onclick="stop()">Stop</button>
         <button id=toggle-paths-btn onclick="togglePaths()">Paths</button>
         <button id=toggle-fow-btn onclick="toggleFogOfWar()">Fog of War</button>
-        <button id=save-geometry-btn onclick="console.save(dndFowMap.state.geometry, 'geometry.js', 'dndFowMap.state.geometry')">
+        <button id=save-geometry-btn
+            onclick="console.save(dndFowMap.store.getState().geometry, 'geometry.js', 'dndFowMap.staticStore.geometry')">
             Save Geometry
         </button>
         <button id=save-combatants-btn
-            onclick="console.save(dndFowMap.state.combatants, 'combatants.js', 'dndFowMap.state.combatants')">
+            onclick="console.save(dndFowMap.store.getState().combatants, 'combatants.js', 'dndFowMap.staticStore.combatants')">
             Save Combatants
         </button>
     </div>
@@ -49,7 +50,7 @@
     <!-- Gobal module: "dfm" (dnd fow map) -->
     <script src="js/dndfowmap.js"></script>
 
-    <!-- Data -->
+    <!-- Static Data -->
     <!-- state tree -->
     <script src="js/state.js"></script>
     <!-- augment the state tree with these -->
@@ -57,6 +58,14 @@
     <script src="js/geometry.js"></script>
     <script src="js/tokenset.js"></script>
     <script src="js/mapdetails.js"></script>
+
+    <!-- Pub-sub -->
+    <!-- define: actions, store and reducers -->
+    <script src="js/actions.js"></script>
+    <script src="js/reducer.js"></script>
+    <script src="js/store.js"></script>
+    <!-- initialize store-->
+    <script src="js/initstore.js"></script>
 
     <!-- Procedural -->
     <script src="js/pathstring.js"></script>

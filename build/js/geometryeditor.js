@@ -3,8 +3,8 @@
 
 dndFowMap.geometryEditor = (function(dfm) {
 // todo: encapsulate variables!!!
-  dfm.state.geometryEditorState = 'stop'; // ready | reading | stop
-  dfm.state.geometryEditorShowPaths = false;
+  dfm.store.getState().geometryEditorState = 'stop'; // ready | reading | stop
+  dfm.store.getState().geometryEditorShowPaths = false;
 
   const wrapper = d3.select('g.map-wrapper');
 
@@ -13,12 +13,12 @@ dndFowMap.geometryEditor = (function(dfm) {
       .classed('geometry-edit', true);
 
   const ready = () => {
-    dfm.state.geometryEditorState = 'ready';
+    dfm.store.getState().geometryEditorState = 'ready';
   };
 
   const stop = () => {
-    dfm.state.geometryEditorState = 'stop';
-    dfm.state.currentRoom.isComplete = true;
+    dfm.store.getState().geometryEditorState = 'stop';
+    dfm.store.getState().currentRoom.isComplete = true;
     updatePaths();
     updateVertexHandles();
   };
@@ -29,7 +29,7 @@ dndFowMap.geometryEditor = (function(dfm) {
       const x = coordinates[0];
       const y = coordinates[1];
 
-      dfm.state.currentRoom = {
+      dfm.store.getState().currentRoom = {
         name: 'your_name_here',
         isComplete: false,
         isExplored: true,
@@ -38,16 +38,16 @@ dndFowMap.geometryEditor = (function(dfm) {
 
       updateVertexHandles();
 
-      dfm.state.geometry.push(dfm.state.currentRoom);
+      dfm.store.getState().geometry.push(dfm.store.getState().currentRoom);
 
-      dfm.state.geometryEditorState = 'reading';
+      dfm.store.getState().geometryEditorState = 'reading';
     },
     'reading': function(element) {
       const coordinates = d3.mouse(element);
       const x = coordinates[0];
       const y = coordinates[1];
 
-      dfm.state.currentRoom.vertices.push([x, y]);
+      dfm.store.getState().currentRoom.vertices.push([x, y]);
     },
     'stop': function() { },
   };
@@ -55,7 +55,7 @@ dndFowMap.geometryEditor = (function(dfm) {
 
   /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
   function clickHandler() {
-    clickAction[dfm.state.geometryEditorState](this);
+    clickAction[dfm.store.getState().geometryEditorState](this);
     updatePaths();
     updateVertexHandles();
   }
@@ -75,24 +75,24 @@ dndFowMap.geometryEditor = (function(dfm) {
   };
 
   const getCurrentRoom = () => {
-    return dfm.state.currentRoom;
+    return dfm.store.getState().currentRoom;
   };
 
   const updatePaths = () => {
     const pathData =
-      dfm.state.geometryEditorShowPaths && dfm.state.geometry || [];
+      dfm.store.getState().geometryEditorShowPaths && dfm.store.getState().geometry || [];
     const paths = geometryEdit.selectAll('path')
         .data(pathData);
 
     paths.enter().append('path')
         .attr('d', function(d) {
           return dfm.pathString(
-              d.vertices, dfm.state.geometryEditorState === 'stop');
+              d.vertices, dfm.store.getState().geometryEditorState === 'stop');
         });
 
     paths.attr('d', function(d) {
       return dfm.pathString(
-          d.vertices, dfm.state.geometryEditorState === 'stop');
+          d.vertices, dfm.store.getState().geometryEditorState === 'stop');
     });
 
     paths.exit().remove();
@@ -101,14 +101,14 @@ dndFowMap.geometryEditor = (function(dfm) {
   updatePaths();
 
   const togglePaths = () => {
-    dfm.state.geometryEditorShowPaths = !dfm.state.geometryEditorShowPaths;
+    dfm.store.getState().geometryEditorShowPaths = !dfm.store.getState().geometryEditorShowPaths;
     updatePaths();
     updateVertexHandles();
   };
 
 
   const printGeometry = () => {
-    console.log(JSON.stringify(dfm.state.geometry, null, 4));
+    console.log(JSON.stringify(dfm.store.getState().geometry, null, 4));
   };
 
   const dragHandle = (v) => {
@@ -134,9 +134,9 @@ dndFowMap.geometryEditor = (function(dfm) {
 
   const updateVertexHandles = () =>{
     handles = geometryEdit.selectAll('.vertex-handle')
-        .data(dfm.state.geometryEditorShowPaths &&
-          dfm.state.currentRoom &&
-          dfm.state.currentRoom.vertices || []);
+        .data(dfm.store.getState().geometryEditorShowPaths &&
+          dfm.store.getState().currentRoom &&
+          dfm.store.getState().currentRoom.vertices || []);
 
     handles.enter()
         .append('circle')

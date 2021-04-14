@@ -10,6 +10,8 @@ dndFowMap.controls = (function(dfm) {
   const store = dfm.store;
   const addSetCurrentRoomAction = dfm.actions.addSetCurrentRoomAction;
   const addRemoveCurrentTokenAction = dfm.actions.addRemoveCurrentTokenAction;
+  const addMonsterToCurrentRoomAction =
+    dfm.actions.addMonsterToCurrentRoomAction;
 
   // /////////////////////////////////////////////////////////////// Utility //
 
@@ -59,15 +61,14 @@ dndFowMap.controls = (function(dfm) {
 
   const addMonsterToCurrentRoom = (name) => {
     const c = centerOfRoom(store.getState().currentRoom);
-    store.getState().combatants.push({ // todo: action dispatch
+    store.dispatch(addMonsterToCurrentRoomAction({
       alignment: 'hostile',
       hidden: false,
       tokenRef: name.toLowerCase(),
       name: `${name}.${nextMonsterNameSuffix(name)}`,
       x: c[0],
       y: c[1],
-    });
-    updateCombatants();
+    }));
   };
 
   const removeCurrentToken = () => {

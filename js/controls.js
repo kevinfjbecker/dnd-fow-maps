@@ -7,9 +7,9 @@ dndFowMap.controls = (function(dfm) {
   const updateCombatants = dfm.tacticalMap.updateCombatants;
   const updatePaths = dfm.geometryEditor.updatePaths;
   const updateVertexHandles = dfm.geometryEditor.updateVertexHandles;
-  const getWanderingMonsters = dfm.wanderingMonster.getWanderingMonsters;
   const store = dfm.store;
   const addSetCurrentRoomAction = dfm.actions.addSetCurrentRoomAction;
+  const addRemoveCurrentTokenAction = dfm.actions.addRemoveCurrentTokenAction;
 
   // /////////////////////////////////////////////////////////////// Utility //
 
@@ -43,6 +43,7 @@ dndFowMap.controls = (function(dfm) {
     store.getState().currentRoom && store.getState().currentRoom.name || '';
     updatePaths();
     updateVertexHandles();
+    updateCombatants();
   });
 
   // NB: Token Selection is in Token Dragging (as of writing)
@@ -54,23 +55,11 @@ dndFowMap.controls = (function(dfm) {
     store.getState().combatants
         .filter((c) => c.name.split('.')[0] === name).length;
 
-  const addWanderingMonstersToCurrentRoom = () => {
-    if (!store.getState().currentRoom) {
-      return;
-    }
-    const c = centerOfRoom(store.getState().currentRoom);
-    const monsters = getWanderingMonsters(c[0], c[1]);
-    const indexOffset = nextMonsterNameSuffix(monsters[0].name);
-    monsters.forEach((m, i) => m.name = `${m.name}.${i + indexOffset}`);
-    store.getState().combatants.push(...monsters);
-    updateCombatants();
-  };
-
   // ////////////////////////////////////////////// Populate Monsters & NPCs //
 
-  const addMonsterToCurrentRoom = (name, imgFileType = 'jpg') => {
+  const addMonsterToCurrentRoom = (name) => {
     const c = centerOfRoom(store.getState().currentRoom);
-    store.getState().combatants.push({
+    store.getState().combatants.push({ // todo: action dispatch
       alignment: 'hostile',
       hidden: false,
       tokenRef: name.toLowerCase(),
@@ -82,16 +71,13 @@ dndFowMap.controls = (function(dfm) {
   };
 
   const removeCurrentToken = () => {
-    store.getState().combatants.splice(
-        store.getState().combatants.indexOf(store.getState().currentToken), 1);
-    updateCombatants();
+    store.dispatch(addRemoveCurrentTokenAction());
   };
 
   return {
-    addWanderingMonstersToCurrentRoom: addWanderingMonstersToCurrentRoom,
-    addMonsterToCurrentRoom: addMonsterToCurrentRoom,
-    hideControls: hideControls,
-    removeCurrentToken: removeCurrentToken,
-    showControls: showControls,
+    addMonsterToCurrentRoom,
+    hideControls,
+    removeCurrentToken,
+    showControls,
   };
 })(dndFowMap);

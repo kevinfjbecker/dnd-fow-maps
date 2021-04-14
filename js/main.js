@@ -2,7 +2,6 @@
 
 const {
   addMonsterToCurrentRoom,
-  addWanderingMonstersToCurrentRoom,
   hideControls,
   removeCurrentToken,
   showControls,

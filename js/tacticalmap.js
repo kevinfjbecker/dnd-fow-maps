@@ -6,6 +6,7 @@ dndFowMap.tacticalMap = (function(dfm) {
   const updateFog = dfm.fogOfWar.updateFog; // todo: fogOfWar should listen
   const tokenSet = () => dfm.store.getState().tokenSet;
   const addMoveTokenAction = dfm.actions.addMoveTokenAction;
+  const addSetCurrentTokenAction = dfm.actions.addSetCurrentTokenAction;
   const addShowRoomWithCombatantsAction =
     dfm.actions.addShowRoomWithCombatantsAction;
 
@@ -30,7 +31,7 @@ dndFowMap.tacticalMap = (function(dfm) {
       dfm.store.dispatch(addMoveTokenAction(d.name,
           {x: d3.event.x, y: d3.event.y}));
 
-      dfm.store.getState().currentToken = d; // todo: action dispatch
+      dfm.store.dispatch(addSetCurrentTokenAction(d));
 
       dfm.store.getState().geometry.filter((room) => {
         return d3.polygonContains(room.vertices, [d.x, d.y]);

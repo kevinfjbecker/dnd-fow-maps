@@ -2,28 +2,18 @@
 // /////////////////////////////////////////////////////// geometryeditor.js //
 
 dndFowMap.geometryEditor = (function(dfm) {
-  // todo: action dispatch
-  dfm.store.getState().geometryEditorState = 'stop'; // ready | reading | stop
-  // todo: action dispatch
-  dfm.store.getState().geometryEditorShowPaths = false;
-
   const wrapper = d3.select('g.map-wrapper');
 
   const geometryEdit = wrapper
       .append('g')
       .classed('geometry-edit', true);
 
-  const ready = () => { // todo: action dispatch
-    dfm.store.getState().geometryEditorState = 'ready';
+  const ready = () => {
+    dfm.store.dispatch(dfm.actions.addSetEditorStateReadyAction());
   };
 
   const stop = () => {
-    // todo: action dispatch
-    dfm.store.getState().geometryEditorState = 'stop';
-    // todo: action dispatch
-    dfm.store.getState().currentRoom.isComplete = true;
-    updatePaths();
-    updateVertexHandles();
+    dfm.store.dispatch(dfm.actions.addEndEditAction());
   };
 
   const clickAction = {
@@ -31,47 +21,40 @@ dndFowMap.geometryEditor = (function(dfm) {
       const coordinates = d3.mouse(element);
       const x = coordinates[0];
       const y = coordinates[1];
-
-      // todo: action dispatch
-      dfm.store.getState().currentRoom = {
+      const room = {
         name: 'your_name_here',
         isComplete: false,
         isExplored: true,
         vertices: [[x, y]],
       };
 
-      updateVertexHandles();
-
-      // todo: action dispatch
-      dfm.store.getState().geometry.push(dfm.store.getState().currentRoom);
-
-      // todo: action dispatch
-      dfm.store.getState().geometryEditorState = 'reading';
+      dfm.store.dispatch(dfm.actions.addInitializeNewRoomAction(room));
     },
     'reading': function(element) {
       const coordinates = d3.mouse(element);
       const x = coordinates[0];
       const y = coordinates[1];
 
-      // todo: action dispatch
-      dfm.store.getState().currentRoom.vertices.push([x, y]);
+      dfm.store.dispatch(dfm.actions.addNewVertexAction([x, y]));
     },
     'stop': function() { },
   };
 
+  dfm.store.subscribe(() => {
+    updatePaths();
+    updateVertexHandles();
+  });
 
   /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
   function clickHandler() {
     clickAction[dfm.store.getState().geometryEditorState](this);
-    updatePaths();
-    updateVertexHandles();
   }
 
   wrapper.on('click', clickHandler);
 
   const setRoomName = () => {
     const name = d3.select('#room-name').property('value');
-    getCurrentRoom().name = name;
+    getCurrentRoom().name = name; // todo: dispatch this
     updateRoomName();
   };
 
@@ -81,9 +64,7 @@ dndFowMap.geometryEditor = (function(dfm) {
         .property('value', (d) => d.name);
   };
 
-  const getCurrentRoom = () => {
-    return dfm.store.getState().currentRoom;
-  };
+  const getCurrentRoom = () => dfm.store.getState().currentRoom;
 
   const updatePaths = () => {
     const pathData =
@@ -94,25 +75,22 @@ dndFowMap.geometryEditor = (function(dfm) {
 
     paths.enter().append('path')
         .attr('d', function(d) {
-          return dfm.pathString( // todo: should be based on room state
-              d.vertices, dfm.store.getState().geometryEditorState === 'stop');
+          return dfm.pathString(
+              d.vertices, d.isComplete);
         });
 
     paths.attr('d', function(d) {
-      return dfm.pathString( // todo: should be based on room state
-          d.vertices, dfm.store.getState().geometryEditorState === 'stop');
+      return dfm.pathString(
+          d.vertices, d.isComplete);
     });
 
     paths.exit().remove();
   };
 
-  updatePaths();
+  updatePaths(); // todo: move to an init script
 
-  const togglePaths = () => { // todo: action dispatch
-    dfm.store.getState().geometryEditorShowPaths =
-      !dfm.store.getState().geometryEditorShowPaths;
-    updatePaths();
-    updateVertexHandles();
+  const togglePaths = () => {
+    dfm.store.dispatch(dfm.actions.addTogglePathsAction());
   };
 
 
@@ -125,7 +103,7 @@ dndFowMap.geometryEditor = (function(dfm) {
     function dragstarted(v) { }
 
     /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
-    function dragged(v) {
+    function dragged(v) { // todo: action dispatch
       d3.select(this)
           .attr('cx', (v[0] = d3.event.x))
           .attr('cy', (v[1] = d3.event.y));
@@ -133,7 +111,7 @@ dndFowMap.geometryEditor = (function(dfm) {
     }
 
     /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
-    function dragended(v) { };
+    function dragended(v) { }; // todo: action dispatch
 
     return d3.drag()
         .on('start', dragstarted)
@@ -164,7 +142,7 @@ dndFowMap.geometryEditor = (function(dfm) {
     handles.exit().remove();
   };
 
-  updateVertexHandles();
+  updateVertexHandles(); // todo: move to an init script
 
   return {
     printGeometry: printGeometry,

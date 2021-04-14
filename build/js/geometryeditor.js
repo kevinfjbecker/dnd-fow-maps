@@ -2,8 +2,9 @@
 // /////////////////////////////////////////////////////// geometryeditor.js //
 
 dndFowMap.geometryEditor = (function(dfm) {
-// todo: encapsulate variables!!!
+  // todo: action dispatch
   dfm.store.getState().geometryEditorState = 'stop'; // ready | reading | stop
+  // todo: action dispatch
   dfm.store.getState().geometryEditorShowPaths = false;
 
   const wrapper = d3.select('g.map-wrapper');
@@ -12,12 +13,14 @@ dndFowMap.geometryEditor = (function(dfm) {
       .append('g')
       .classed('geometry-edit', true);
 
-  const ready = () => {
+  const ready = () => { // todo: action dispatch
     dfm.store.getState().geometryEditorState = 'ready';
   };
 
   const stop = () => {
+    // todo: action dispatch
     dfm.store.getState().geometryEditorState = 'stop';
+    // todo: action dispatch
     dfm.store.getState().currentRoom.isComplete = true;
     updatePaths();
     updateVertexHandles();
@@ -29,6 +32,7 @@ dndFowMap.geometryEditor = (function(dfm) {
       const x = coordinates[0];
       const y = coordinates[1];
 
+      // todo: action dispatch
       dfm.store.getState().currentRoom = {
         name: 'your_name_here',
         isComplete: false,
@@ -38,8 +42,10 @@ dndFowMap.geometryEditor = (function(dfm) {
 
       updateVertexHandles();
 
+      // todo: action dispatch
       dfm.store.getState().geometry.push(dfm.store.getState().currentRoom);
 
+      // todo: action dispatch
       dfm.store.getState().geometryEditorState = 'reading';
     },
     'reading': function(element) {
@@ -47,6 +53,7 @@ dndFowMap.geometryEditor = (function(dfm) {
       const x = coordinates[0];
       const y = coordinates[1];
 
+      // todo: action dispatch
       dfm.store.getState().currentRoom.vertices.push([x, y]);
     },
     'stop': function() { },
@@ -80,18 +87,19 @@ dndFowMap.geometryEditor = (function(dfm) {
 
   const updatePaths = () => {
     const pathData =
-      dfm.store.getState().geometryEditorShowPaths && dfm.store.getState().geometry || [];
+      dfm.store.getState().geometryEditorShowPaths &&
+        dfm.store.getState().geometry || [];
     const paths = geometryEdit.selectAll('path')
         .data(pathData);
 
     paths.enter().append('path')
         .attr('d', function(d) {
-          return dfm.pathString(
+          return dfm.pathString( // todo: should be based on room state
               d.vertices, dfm.store.getState().geometryEditorState === 'stop');
         });
 
     paths.attr('d', function(d) {
-      return dfm.pathString(
+      return dfm.pathString( // todo: should be based on room state
           d.vertices, dfm.store.getState().geometryEditorState === 'stop');
     });
 
@@ -100,8 +108,9 @@ dndFowMap.geometryEditor = (function(dfm) {
 
   updatePaths();
 
-  const togglePaths = () => {
-    dfm.store.getState().geometryEditorShowPaths = !dfm.store.getState().geometryEditorShowPaths;
+  const togglePaths = () => { // todo: action dispatch
+    dfm.store.getState().geometryEditorShowPaths =
+      !dfm.store.getState().geometryEditorShowPaths;
     updatePaths();
     updateVertexHandles();
   };

@@ -2,11 +2,12 @@
 // /////////////////////////////////////////////////////////// tacticalmap.js //
 
 dndFowMap.tacticalMap = (function(dfm) {
-  const squarWidth = dfm.store.getState().mapDetails.squarWidth;
-  const updateFog = dfm.fogOfWar.updateFog;
-  const tokenSet = dfm.store.getState().tokenSet;
-  const store = dfm.store;
+  const squarWidth = () => dfm.store.getState().mapDetails.squarWidth;
+  const updateFog = dfm.fogOfWar.updateFog; // todo: fogOfWar should listen
+  const tokenSet = () => dfm.store.getState().tokenSet;
   const addMoveTokenAction = dfm.actions.addMoveTokenAction;
+  const addShowRoomWithCombatantsAction =
+    dfm.actions.addShowRoomWithCombatantsAction;
 
   /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
   function drag() {
@@ -26,15 +27,15 @@ dndFowMap.tacticalMap = (function(dfm) {
     function dragended(d) {
       d3.select(this).style('border-width', `${2}px`);
 
-      store.dispatch(addMoveTokenAction(d.name,
+      dfm.store.dispatch(addMoveTokenAction(d.name,
           {x: d3.event.x, y: d3.event.y}));
 
-      dfm.store.getState().currentToken = d;
+      dfm.store.getState().currentToken = d; // todo: action dispatch
 
       dfm.store.getState().geometry.filter((room) => {
         return d3.polygonContains(room.vertices, [d.x, d.y]);
       }).forEach((room) => {
-        showRoomWithCombatants(room.name, true);
+        dfm.store.dispatch(addShowRoomWithCombatantsAction(room.name, true));
       });
     };
 
@@ -57,11 +58,11 @@ dndFowMap.tacticalMap = (function(dfm) {
     tokens.enter()
         .append('div')
         .attr('class', tokenClass)
-        .style('background-image', (d) => `url(${tokenSet[d.tokenRef]})`)
+        .style('background-image', (d) => `url(${tokenSet()[d.tokenRef]})`)
         .style('width', (d) =>
-          `${d.size === 'large' ? 2 * squarWidth : squarWidth}px`)
+          `${d.size === 'large' ? 2 * squarWidth() : squarWidth()}px`)
         .style('height', (d) =>
-          `${d.size === 'large' ? 2 * squarWidth : squarWidth}px`)
+          `${d.size === 'large' ? 2 * squarWidth() : squarWidth()}px`)
         .style('left', (d) => d.x + 'px')
         .style('top', (d) => d.y + 'px')
         .call(drag());
@@ -71,24 +72,16 @@ dndFowMap.tacticalMap = (function(dfm) {
     tokens.exit().remove();
   };
 
-  updateCombatants(); // todo move to an init script
+  updateCombatants(); // todo: move to an init script
 
   const printCombatants = () => {
     console.log(JSON.stringify(dfm.store.getState().combatants, null, 4));
   };
 
-  const showRoomWithCombatants = (name, shown) => {
-    const room =
-    dfm.store.getState().geometry.filter((r) => r.name === name)[0];
-    room.isExplored = shown;
-    dfm.store.getState().combatants
-        .filter((c) => d3.polygonContains(room.vertices, [c.x, c.y]))
-        .forEach((c) => {
-          c.hidden = !shown;
-        });
-    updateFog();
+  dfm.store.subscribe(()=>{
+    updateFog(); // todo: this should be handled somewhere else
     updateCombatants();
-  };
+  });
 
   return {
     printCombatants: printCombatants,

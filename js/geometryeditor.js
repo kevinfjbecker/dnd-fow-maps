@@ -61,7 +61,7 @@ dndFowMap.geometryEditor = (function(dfm) {
   const updateRoomName = () => {
     d3.select('#room-name')
         .datum(dfm.store.getState().currentRoom)
-        .property('value', (d) => d.name);
+        .property('value', (d) => d && d.name || '');
   };
 
   const updatePaths = () => {

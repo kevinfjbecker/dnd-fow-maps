@@ -28,14 +28,17 @@ dndFowMap.tacticalMap = (function(dfm) {
     function dragended(d) {
       d3.select(this).style('border-width', `${2}px`);
 
+      // todo: THREE dispatches, really?
       dfm.store.dispatch(addMoveTokenAction(d.name,
           {x: d3.event.x, y: d3.event.y}));
 
+      // todo: THREE dispatches, really?
       dfm.store.dispatch(addSetCurrentTokenAction(d));
 
       dfm.store.getState().geometry.filter((room) => {
         return d3.polygonContains(room.vertices, [d.x, d.y]);
       }).forEach((room) => {
+        // todo: THREE dispatches, really?
         dfm.store.dispatch(addShowRoomWithCombatantsAction(room.name, true));
       });
     };

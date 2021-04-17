@@ -43,6 +43,7 @@ dndFowMap.geometryEditor = (function(dfm) {
   dfm.store.subscribe(() => {
     updatePaths();
     updateVertexHandles();
+    updateRoomName();
   });
 
   /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
@@ -54,22 +55,20 @@ dndFowMap.geometryEditor = (function(dfm) {
 
   const setRoomName = () => {
     const name = d3.select('#room-name').property('value');
-    getCurrentRoom().name = name; // todo: dispatch this
-    updateRoomName();
+    dfm.store.dispatch(dfm.actions.addSetCurrentRoomNameAction(name));
   };
 
   const updateRoomName = () => {
     d3.select('#room-name')
-        .datum(getCurrentRoom)
+        .datum(dfm.store.getState().currentRoom)
         .property('value', (d) => d.name);
   };
-
-  const getCurrentRoom = () => dfm.store.getState().currentRoom;
 
   const updatePaths = () => {
     const pathData =
       dfm.store.getState().geometryEditorShowPaths &&
         dfm.store.getState().geometry || [];
+
     const paths = geometryEdit.selectAll('path')
         .data(pathData);
 
@@ -93,7 +92,6 @@ dndFowMap.geometryEditor = (function(dfm) {
     dfm.store.dispatch(dfm.actions.addTogglePathsAction());
   };
 
-
   const printGeometry = () => {
     console.log(JSON.stringify(dfm.store.getState().geometry, null, 4));
   };
@@ -103,15 +101,18 @@ dndFowMap.geometryEditor = (function(dfm) {
     function dragstarted(v) { }
 
     /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
-    function dragged(v) { // todo: action dispatch
+    function dragged(v) {
       d3.select(this)
-          .attr('cx', (v[0] = d3.event.x))
-          .attr('cy', (v[1] = d3.event.y));
-      updatePaths();
+          .attr('cx', d3.event.x)
+          .attr('cy', d3.event.y);
+      dfm.store.dispatch(dfm.actions.addMoveVetexAction(
+          v,
+          {x: d3.event.x, y: d3.event.y}),
+      );
     }
 
     /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
-    function dragended(v) { }; // todo: action dispatch
+    function dragended(v) { };
 
     return d3.drag()
         .on('start', dragstarted)

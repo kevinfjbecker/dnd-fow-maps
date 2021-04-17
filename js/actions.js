@@ -4,9 +4,11 @@ dndFowMap.actions = (function(dfm) {
   const INITIALIZE_NEW_ROOM = 'INITIALIZE_NEW_ROOM';
   const MONSTER_TO_CURRENT_ROOM = 'MONSTER_TO_CURRENT_ROOM';
   const MOVE_TOKEN = 'MOVE_TOKEN';
+  const MOVE_VETEX = 'MOVE_VETEX';
   const NEW_VERTEX = 'NEW_VERTEX';
   const REMOVE_CURRENT_TOKEN = 'REMOVE_CURRENT_TOKEN';
   const SET_CURRENT_ROOM = 'SET_CURRENT_ROOM';
+  const SET_CURRENT_ROOM_NAME = 'SET_CURRENT_ROOM_NAME';
   const SET_CURRENT_TOKEN = 'SET_CURRENT_TOKEN';
   const SET_EDITOR_STATE_READY = 'SET_EDITOR_STATE_READY';
   const SHOW_ROOM_WITH_COMBATANTS = 'SHOW_ROOM_WITH_COMBATANTS';
@@ -34,6 +36,12 @@ dndFowMap.actions = (function(dfm) {
     location,
   });
 
+  const addMoveVetexAction = (vertex, location) => ({
+    type: MOVE_VETEX,
+    vertex,
+    location,
+  });
+
   const addNewVertexAction = (vertex) => ({
     type: NEW_VERTEX,
     vertex,
@@ -45,6 +53,11 @@ dndFowMap.actions = (function(dfm) {
 
   const addSetCurrentRoomAction = (roomName) => ({
     type: SET_CURRENT_ROOM,
+    roomName,
+  });
+
+  const addSetCurrentRoomNameAction = (roomName) => ({
+    type: SET_CURRENT_ROOM_NAME,
     roomName,
   });
 
@@ -73,9 +86,11 @@ dndFowMap.actions = (function(dfm) {
     INITIALIZE_NEW_ROOM,
     MONSTER_TO_CURRENT_ROOM,
     MOVE_TOKEN,
+    MOVE_VETEX,
     NEW_VERTEX,
     REMOVE_CURRENT_TOKEN,
     SET_CURRENT_ROOM,
+    SET_CURRENT_ROOM_NAME,
     SET_CURRENT_TOKEN,
     SET_EDITOR_STATE_READY,
     SHOW_ROOM_WITH_COMBATANTS,
@@ -84,9 +99,11 @@ dndFowMap.actions = (function(dfm) {
     addInitializeNewRoomAction,
     addMonsterToCurrentRoomAction,
     addMoveTokenAction,
+    addMoveVetexAction,
     addNewVertexAction,
     addRemoveCurrentTokenAction,
     addSetCurrentRoomAction,
+    addSetCurrentRoomNameAction,
     addSetCurrentTokenAction,
     addSetEditorStateReadyAction,
     addShowRoomWithCombatantsAction,

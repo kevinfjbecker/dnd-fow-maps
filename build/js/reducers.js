@@ -44,6 +44,16 @@ dndFowMap.reducer = (function(dfm) {
       case dfm.actions.INITIALIZE_NEW_ROOM:
         return action.room;
 
+      case dfm.actions.MOVE_VETEX:
+        state.vertices = state.vertices.map((v) => {
+          if (v === action.vertex) {
+            v[0] = action.location.x;
+            v[1] = action.location.y;
+          }
+          return v;
+        });
+        return state; // maintain identity with room in geometry
+
       case dfm.actions.NEW_VERTEX:
         state.vertices = state.vertices.concat([action.vertex]);
         return state; // maintain identity with room in geometry
@@ -51,6 +61,10 @@ dndFowMap.reducer = (function(dfm) {
       case dfm.actions.SET_CURRENT_ROOM:
         return dfm.store.getState().geometry
             .filter((room) => room.name === action.roomName)[0] || null;
+
+      case dfm.actions.SET_CURRENT_ROOM_NAME:
+        state.name = action.roomName;
+        return state; // maintain identity with room in geometry
 
       default:
         return state;

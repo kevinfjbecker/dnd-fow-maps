@@ -11,7 +11,7 @@
     if (!filename) filename = 'console.json';
 
     if (typeof data === 'object') {
-      data = `${variableName} = ${JSON.stringify(data, undefined, 4)};`;
+      data = `${variableName} = ${JSON.stringify(data, undefined, 2)};`;
     }
 
     const blob = new Blob([data], {type: 'text/json'});

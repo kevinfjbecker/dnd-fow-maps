@@ -15,4 +15,7 @@ dndFowMap.staticState.tokenSet = {
   'slammer': 'img/SLAMMER.jpeg',
   'whitedragonwyrmling': 'img/WhiteDragonWyrmling.jpeg',
   'yusdrayl': 'img/Yusdrayl.jpeg',
+  'faileddragonpriest': 'https://media-waterdeep.cursecdn.com/attachments/2/655/giant.jpg',
+  'twigblight': 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/463/35/35/636376286997146437.jpeg',
+  'giantrat': 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/537/35/35/636376332197484465.jpeg',
 };

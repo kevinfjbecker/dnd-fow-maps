@@ -839,7 +839,7 @@ dndFowMap.staticState.geometry = [
   {
     'name': '28.InfestedCells',
     'isComplete': true,
-    'isExplored': false,
+    'isExplored': true,
     'vertices': [
       [
         1543,
@@ -862,7 +862,7 @@ dndFowMap.staticState.geometry = [
   {
     'name': '29.DisabledTraps',
     'isComplete': true,
-    'isExplored': false,
+    'isExplored': true,
     'vertices': [
       [
         1620,
@@ -901,7 +901,7 @@ dndFowMap.staticState.geometry = [
   {
     'name': '30.MamaRat',
     'isComplete': true,
-    'isExplored': false,
+    'isExplored': true,
     'vertices': [
       [
         1354,

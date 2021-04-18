@@ -24,3 +24,6 @@ const {
   printCombatants,
   updateCombatants,
 } = dndFowMap.tacticalMap;
+
+const getCurrentRoom = () => dndFowMap.store.getState().currentRoom;
+const getCurrentToken = () => dndFowMap.store.getState().currentToken;

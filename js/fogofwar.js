@@ -13,7 +13,9 @@ dndFowMap.fogOfWar = (function(dfm) {
   // (function setupMap() {
   // 0. setup groups
   // ----------------------------------
-  const svg = d3.select('svg');
+  const svg = d3.select('svg')
+      .attr('height', 2080)
+      .attr('width', 2008);
   const wrapper = svg.append('g').classed('map-wrapper', true);
   const background = wrapper.append('g').classed('background', true);
 
@@ -35,8 +37,8 @@ dndFowMap.fogOfWar = (function(dfm) {
       .attr('preserveAspectRatio', 'none')
       .attr('x', (d) => d.xOffset)
       .attr('y', (d) => d.yOffset)
-      .attr('height', (d) => d.height)
-      .attr('width', (d) => d.width);
+      .attr('width', (d) => d.imgWidth + 'px')
+      .attr('height', (d) => d.imgHeight + 'px');
 
   addFogOfWarLayer();
 

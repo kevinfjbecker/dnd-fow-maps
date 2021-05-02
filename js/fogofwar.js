@@ -2,6 +2,9 @@
 // ///////////////////////////////////////////////////////////// fogofwar.js //
 
 dndFowMap.fogOfWar = (function(dfm) {
+  const svgWidth = () => dndFowMap.store.getState().mapDetails.svgWidth;
+  const svgHeiht = () => dndFowMap.store.getState().mapDetails.svgHeight;
+
   const addFogOfWarLayer = () => {
     background.append('rect')
         .attr('id', 'fog-of-war')
@@ -14,8 +17,8 @@ dndFowMap.fogOfWar = (function(dfm) {
   // 0. setup groups
   // ----------------------------------
   const svg = d3.select('svg')
-      .attr('height', 2080)
-      .attr('width', 2008);
+      .attr('height', svgHeiht())
+      .attr('width', svgWidth());
   const wrapper = svg.append('g').classed('map-wrapper', true);
   const background = wrapper.append('g').classed('background', true);
 

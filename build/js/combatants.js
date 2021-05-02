@@ -10,16 +10,16 @@ dndFowMap.staticState.combatants = [
   {
     "name": "Belvias",
     "alignment": "friendly",
-    "x": 1694,
-    "y": 350,
+    "x": 387,
+    "y": 497,
     "hidden": false,
     "tokenRef": "belvias"
   },
   {
     "name": "BiggsChunks",
     "alignment": "friendly",
-    "x": 1626,
-    "y": 385,
+    "x": 549,
+    "y": 440,
     "hidden": false,
     "defeated": false,
     "tokenRef": "biggschunks"
@@ -27,32 +27,32 @@ dndFowMap.staticState.combatants = [
   {
     "name": "Florry",
     "alignment": "friendly",
-    "x": 1659,
-    "y": 313,
+    "x": 522,
+    "y": 468,
     "hidden": false,
     "tokenRef": "florry"
   },
   {
     "name": "MoreAle",
     "alignment": "friendly",
-    "x": 1657,
-    "y": 356,
+    "x": 430,
+    "y": 388,
     "hidden": false,
     "tokenRef": "moreale"
   },
   {
     "name": "ProfessorBlue",
     "alignment": "friendly",
-    "x": 1622,
-    "y": 315,
+    "x": 397,
+    "y": 368,
     "hidden": false,
     "tokenRef": "professorblue"
   },
   {
     "name": "SLAMMER",
     "alignment": "friendly",
-    "x": 1660,
-    "y": 391,
+    "x": 390,
+    "y": 460,
     "hidden": false,
     "tokenRef": "slammer"
   },
@@ -169,8 +169,8 @@ dndFowMap.staticState.combatants = [
     "alignment": "hostile",
     "hidden": false,
     "name": "Goblin.0",
-    "x": 1405.9473527662105,
-    "y": 493.5634542930793,
+    "x": 1435.9473527662105,
+    "y": 433.5634542930793,
     "defeated": true,
     "tokenRef": "goblin"
   },
@@ -205,8 +205,8 @@ dndFowMap.staticState.combatants = [
     "alignment": "friendly",
     "hidden": false,
     "name": "ErkyTimbers.0",
-    "x": 1731.245297215952,
-    "y": 417.058690744921,
+    "x": 556.245297215952,
+    "y": 473.058690744921,
     "tokenRef": "erkytimbers"
   },
   {
@@ -219,43 +219,47 @@ dndFowMap.staticState.combatants = [
   },
   {
     "alignment": "boss",
-    "hidden": true,
+    "hidden": false,
     "name": "Durnn",
-    "x": 208,
-    "y": 170,
-    "tokenRef": "durnn"
+    "x": 401,
+    "y": 408,
+    "tokenRef": "durnn",
+    "defeated": true
   },
   {
     "name": "Grenl",
     "alignment": "boss",
-    "x": 199,
-    "y": 209,
-    "hidden": true,
+    "x": 359,
+    "y": 432,
+    "hidden": false,
     "tokenRef": "grenl"
   },
   {
     "name": "Hobgoblin.0",
     "alignment": "hostile",
-    "x": 199,
-    "y": 247,
-    "hidden": true,
-    "tokenRef": "hobgoblin"
+    "x": 361,
+    "y": 373,
+    "hidden": false,
+    "tokenRef": "hobgoblin",
+    "defeated": true
   },
   {
     "name": "Hobgoblin.1",
     "alignment": "hostile",
-    "x": 279,
-    "y": 167,
-    "hidden": true,
-    "tokenRef": "hobgoblin"
+    "x": 325,
+    "y": 389,
+    "hidden": false,
+    "tokenRef": "hobgoblin",
+    "defeated": true
   },
   {
     "name": "Hobgoblin.2",
     "alignment": "hostile",
-    "x": 319,
-    "y": 169,
-    "hidden": true,
-    "tokenRef": "hobgoblin"
+    "x": 297,
+    "y": 398,
+    "hidden": false,
+    "tokenRef": "hobgoblin",
+    "defeated": true
   },
   {
     "alignment": "hostile",
@@ -318,6 +322,51 @@ dndFowMap.staticState.combatants = [
     "name": "giantrat.6",
     "x": 1700.513849718874,
     "y": 495.97909069679736,
+    "defeated": true
+  },
+  {
+    "alignment": "hostile",
+    "hidden": false,
+    "tokenRef": "goblin",
+    "name": "goblin.1",
+    "x": 1292.2383114040142,
+    "y": 501.6463734052277,
+    "defeated": true
+  },
+  {
+    "alignment": "hostile",
+    "hidden": false,
+    "tokenRef": "goblin",
+    "name": "goblin.1",
+    "x": 1292.2383114040142,
+    "y": 501.6463734052277,
+    "defeated": true
+  },
+  {
+    "alignment": "hostile",
+    "hidden": false,
+    "tokenRef": "goblin",
+    "name": "goblin.4",
+    "x": 663.1202180968606,
+    "y": 479.7378423947107,
+    "defeated": true
+  },
+  {
+    "alignment": "hostile",
+    "hidden": false,
+    "tokenRef": "goblin",
+    "name": "goblin.7",
+    "x": 527.6465987990855,
+    "y": 399.03372988679484,
+    "defeated": true
+  },
+  {
+    "alignment": "hostile",
+    "hidden": false,
+    "tokenRef": "goblin",
+    "name": "goblin.5",
+    "x": 661.1202180968606,
+    "y": 408.7378423947107,
     "defeated": true
   }
 ];

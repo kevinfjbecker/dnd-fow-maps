@@ -2,7 +2,7 @@
 // /////////////////////////////////////////////////////////// tacticalmap.js //
 
 dndFowMap.tacticalMap = (function(dfm) {
-  const squarWidth = () => dfm.store.getState().mapDetails.squarWidth;
+  const squareWidth = () => dfm.store.getState().mapDetails.squareWidth;
   const updateFog = dfm.fogOfWar.updateFog; // todo: fogOfWar should listen
   const tokenSet = () => dfm.store.getState().tokenSet;
   const addMoveTokenAction = dfm.actions.addMoveTokenAction;
@@ -64,9 +64,9 @@ dndFowMap.tacticalMap = (function(dfm) {
         .attr('class', tokenClass)
         .style('background-image', (d) => `url(${tokenSet()[d.tokenRef]})`)
         .style('width', (d) =>
-          `${d.size === 'large' ? 2 * squarWidth() : squarWidth()}px`)
+          `${d.size === 'large' ? 2 * squareWidth() : squareWidth()}px`)
         .style('height', (d) =>
-          `${d.size === 'large' ? 2 * squarWidth() : squarWidth()}px`)
+          `${d.size === 'large' ? 2 * squareWidth() : squareWidth()}px`)
         .style('left', (d) => d.x + 'px')
         .style('top', (d) => d.y + 'px')
         .call(drag());

@@ -6,5 +6,5 @@ dndFowMap.staticState.mapDetails = {
   imgHeight: 4160,
   xOffset: 0,
   yOffset: -2080,
-  squarWidth: 30,
+  squareWidth: 30,
 };

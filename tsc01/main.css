@@ -1,0 +1,80 @@
+
+/*************************************************************** Fow of War **/
+
+html,
+body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+path {
+    /* Cruft? */
+    fill: none;
+    stroke: #343434;
+}
+
+.result {
+    /* cruft? */
+    fill: none;
+    stroke: #343434;
+    stroke-width: 4px;
+}
+
+.fog {
+    /* cruft? */
+    filter: brightness(0.05);
+}
+
+/*********************************************************** Geometry Maker **/
+
+.geometry-edit path {
+    /* fill: green; */
+    /* fill-opacity: 0.1; */
+    stroke: greenyellow;
+    stroke-width: 3px;
+}
+
+.geometry-edit path:hover {
+    /* fill: green; */
+    /* fill-opacity: 0.5; */
+    stroke: greenyellow;
+    stroke-width: 3px;
+}
+
+/************************************************************* Tactical Map **/
+
+.token {
+    position: absolute;
+    background-size: contain;
+    border-radius: 50%;
+}
+
+.defeated {
+    opacity: 0.4;
+}
+
+.friendly {
+    border: 2px solid lightsteelblue;
+}
+
+.hostile {
+    border: 2px solid crimson;
+}
+
+.boss {
+    border: 2px solid goldenrod;
+}
+
+/************************************************************ Control Panel **/
+
+#control-panel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 3px;
+}
+
+#control-panel div {
+    margin: 3px;
+}

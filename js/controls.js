@@ -43,9 +43,9 @@ dndFowMap.controls = (function(dfm) {
   store.subscribe(()=>{
     document.getElementById('room-name').value =
     store.getState().currentRoom && store.getState().currentRoom.name || '';
-    updatePaths();
-    updateVertexHandles();
-    updateCombatants();
+    updatePaths(); // cruft
+    updateVertexHandles(); // cruft
+    updateCombatants(); // cruft
   });
 
   // NB: Token Selection is in Token Dragging (as of writing)

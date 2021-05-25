@@ -1,6 +1,8 @@
 
 // ////////////////////////////////////////////////////////// consolesave.js //
 
+// src: https://stackoverflow.com/questions/11849562/how-to-save-the-output-of-a-console-logobject-to-a-file
+
 (function(console) {
   console.save = function(data, filename, variableName) {
     if (!data) {

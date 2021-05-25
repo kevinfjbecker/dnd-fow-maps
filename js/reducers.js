@@ -14,14 +14,14 @@ dndFowMap.reducer = (function(dfm) {
         });
 
       case dfm.actions.REMOVE_CURRENT_TOKEN:
-        const currentToken = dfm.store.getState().currentToken;
+        const currentToken = dfm.store.getState().currentToken; // impure?
         if (currentToken) {
           return state.filter((combatant)=>combatant !== currentToken);
         }
         return state;
 
       case dfm.actions.SHOW_ROOM_WITH_COMBATANTS:
-        const room = dfm.store.getState().geometry
+        const room = dfm.store.getState().geometry // impure?
             .filter((r) => r.name === action.roomName)[0];
         return state.map((combatant)=>{
           if (d3.polygonContains(room.vertices, [combatant.x, combatant.y])) {
@@ -59,7 +59,7 @@ dndFowMap.reducer = (function(dfm) {
         return state; // maintain identity with room in geometry
 
       case dfm.actions.SET_CURRENT_ROOM:
-        return dfm.store.getState().geometry
+        return dfm.store.getState().geometry // impure?
             .filter((room) => room.name === action.roomName)[0] || null;
 
       case dfm.actions.SET_CURRENT_ROOM_NAME:

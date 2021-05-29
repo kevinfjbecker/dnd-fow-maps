@@ -16,8 +16,9 @@ dndFowMap.actions = (function(dfm) {
 
   // ///////////////////////////////////////////////////// action generators //
 
-  const addEndEditAction = () => ({
+  const addEndEditAction = (id) => ({
     type: END_EDIT,
+    id,
   });
 
   const addInitializeNewRoomAction = (room) => ({
@@ -36,34 +37,38 @@ dndFowMap.actions = (function(dfm) {
     location,
   });
 
-  const addMoveVetexAction = (vertex, location) => ({
+  const addMoveVetexAction = (id, vertex, location) => ({
     type: MOVE_VETEX,
+    id,
     vertex,
     location,
   });
 
-  const addNewVertexAction = (vertex) => ({
+  const addNewVertexAction = (id, vertex) => ({
     type: NEW_VERTEX,
+    id,
     vertex,
   });
 
-  const addRemoveCurrentTokenAction = () => ({
+  const addRemoveCurrentTokenAction = (id) => ({
     type: REMOVE_CURRENT_TOKEN,
+    id,
   });
 
-  const addSetCurrentRoomAction = (roomName) => ({
+  const addSetCurrentRoomAction = (id) => ({
     type: SET_CURRENT_ROOM,
-    roomName,
+    id,
   });
 
-  const addSetCurrentRoomNameAction = (roomName) => ({
+  const addSetCurrentRoomNameAction = (id, roomName) => ({
     type: SET_CURRENT_ROOM_NAME,
+    id,
     roomName,
   });
 
-  const addSetCurrentTokenAction = (token) => ({
+  const addSetCurrentTokenAction = (id) => ({
     type: SET_CURRENT_TOKEN,
-    token,
+    id,
   });
 
   const addSetEditorStateReadyAction = () => ({

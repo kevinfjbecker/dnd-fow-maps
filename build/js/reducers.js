@@ -5,7 +5,7 @@ dndFowMap.reducer = (function(dfm) {
         return state.concat([action.monster]);
 
       case dfm.actions.MOVE_TOKEN:
-        return state.map((combatant)=> {
+        return state.map((combatant) => {
           if (combatant.name === action.tokenName) {
             combatant.x = action.location.x;
             combatant.y = action.location.y;
@@ -14,14 +14,13 @@ dndFowMap.reducer = (function(dfm) {
         });
 
       case dfm.actions.REMOVE_CURRENT_TOKEN:
-        const currentToken = dfm.store.getState().currentToken; // impure?
-        if (currentToken) {
-          return state.filter((combatant)=>combatant !== currentToken);
+        if (action.id) {
+          return state.filter((combatant)=>combatant.id !== action.id);
         }
         return state;
 
       case dfm.actions.SHOW_ROOM_WITH_COMBATANTS:
-        const room = dfm.store.getState().geometry // impure?
+        const room = dfm.store.getState().geometry // todo: fix -- impure?
             .filter((r) => r.name === action.roomName)[0];
         return state.map((combatant)=>{
           if (d3.polygonContains(room.vertices, [combatant.x, combatant.y])) {
@@ -37,34 +36,11 @@ dndFowMap.reducer = (function(dfm) {
 
   const currentRoomReducer = (state = null, action) => {
     switch (action.type) {
-      case dfm.actions.END_EDIT:
-        state.isComplete = true;
-        return state; // maintain identity with room in geometry
-
       case dfm.actions.INITIALIZE_NEW_ROOM:
-        return action.room;
-
-      case dfm.actions.MOVE_VETEX:
-        state.vertices = state.vertices.map((v) => {
-          if (v === action.vertex) {
-            v[0] = action.location.x;
-            v[1] = action.location.y;
-          }
-          return v;
-        });
-        return state; // maintain identity with room in geometry
-
-      case dfm.actions.NEW_VERTEX:
-        state.vertices = state.vertices.concat([action.vertex]);
-        return state; // maintain identity with room in geometry
+        return action.room.id;
 
       case dfm.actions.SET_CURRENT_ROOM:
-        return dfm.store.getState().geometry // impure?
-            .filter((room) => room.name === action.roomName)[0] || null;
-
-      case dfm.actions.SET_CURRENT_ROOM_NAME:
-        state.name = action.roomName;
-        return state; // maintain identity with room in geometry
+        return action.id;
 
       default:
         return state;
@@ -77,7 +53,7 @@ dndFowMap.reducer = (function(dfm) {
         return null;
 
       case dfm.actions.SET_CURRENT_TOKEN:
-        return action.token;
+        return action.id;
 
       default:
         return state;
@@ -114,6 +90,45 @@ dndFowMap.reducer = (function(dfm) {
     switch (action.type) {
       case dfm.actions.INITIALIZE_NEW_ROOM:
         return state.concat([action.room]);
+
+      case dfm.actions.END_EDIT:
+        return state.map((room) => {
+          if (room.id === action.id) {
+            room.isComplete = true;
+          }
+          return room;
+        });
+
+      case dfm.actions.MOVE_VETEX:
+        return state.map((room) => {
+          if (room.id === action.id) {
+            room.vertices = room.vertices.map((v) => {
+              if (v === action.vertex) {
+                v[0] = action.location.x;
+                v[1] = action.location.y;
+              }
+              return v;
+            });
+          }
+          return room;
+        });
+
+      case dfm.actions.NEW_VERTEX:
+        return state.map((room) => {
+          if (room.id === action.id) {
+            room.vertices = room.vertices.concat([action.vertex]);
+          }
+          return room;
+        });
+
+      case dfm.actions.SET_CURRENT_ROOM_NAME:
+        return state.map((room) => {
+          if (room.id === action.id) {
+            room.name = action.roomName;
+          }
+          return room;
+        });
+
 
       case dfm.actions.SHOW_ROOM_WITH_COMBATANTS:
         return state.map((room) => {

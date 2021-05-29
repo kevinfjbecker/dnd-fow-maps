@@ -13,7 +13,8 @@ dndFowMap.geometryEditor = (function(dfm) {
   };
 
   const stop = () => {
-    dfm.store.dispatch(dfm.actions.addEndEditAction());
+    const id = dfm.store.getState().currentRoom;
+    dfm.store.dispatch(dfm.actions.addEndEditAction(id));
   };
 
   const clickAction = {
@@ -23,6 +24,7 @@ dndFowMap.geometryEditor = (function(dfm) {
       const y = coordinates[1];
       const room = {
         name: 'your_name_here',
+        id: dfm.getUuid(),
         isComplete: false,
         isExplored: true,
         vertices: [[x, y]],
@@ -35,7 +37,10 @@ dndFowMap.geometryEditor = (function(dfm) {
       const x = coordinates[0];
       const y = coordinates[1];
 
-      dfm.store.dispatch(dfm.actions.addNewVertexAction([x, y]));
+      dfm.store.dispatch(dfm.actions.addNewVertexAction(
+          dfm.store.getState().currentRoom,
+          [x, y],
+      ));
     },
     'stop': function() { },
   };
@@ -55,12 +60,15 @@ dndFowMap.geometryEditor = (function(dfm) {
 
   const setRoomName = () => {
     const name = d3.select('#room-name').property('value');
-    dfm.store.dispatch(dfm.actions.addSetCurrentRoomNameAction(name));
+    const id = dfm.store.getState().currentRoom;
+    dfm.store.dispatch(dfm.actions.addSetCurrentRoomNameAction(id, name));
   };
 
   const updateRoomName = () => {
+    const id = dfm.store.getState().currentRoom;
+    const room = dfm.store.getState().geometry.filter((r) => r.id === id);
     d3.select('#room-name')
-        .datum(dfm.store.getState().currentRoom)
+        .datum(room)
         .property('value', (d) => d && d.name || '');
   };
 
@@ -106,6 +114,7 @@ dndFowMap.geometryEditor = (function(dfm) {
           .attr('cx', d3.event.x)
           .attr('cy', d3.event.y);
       dfm.store.dispatch(dfm.actions.addMoveVetexAction(
+          dfm.store.getState().currentRoom,
           v,
           {x: d3.event.x, y: d3.event.y}),
       );
@@ -123,8 +132,8 @@ dndFowMap.geometryEditor = (function(dfm) {
   const updateVertexHandles = () =>{
     handles = geometryEdit.selectAll('.vertex-handle')
         .data(dfm.store.getState().geometryEditorShowPaths &&
-          dfm.store.getState().currentRoom &&
-          dfm.store.getState().currentRoom.vertices || []);
+          dfm.stateUtilities.getCurrentRoom() &&
+          dfm.stateUtilities.getCurrentRoom().vertices || []);
 
     handles.enter()
         .append('circle')

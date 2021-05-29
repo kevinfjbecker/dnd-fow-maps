@@ -33,7 +33,7 @@ dndFowMap.tacticalMap = (function(dfm) {
           {x: d3.event.x, y: d3.event.y}));
 
       // todo: THREE dispatches, really?
-      dfm.store.dispatch(addSetCurrentTokenAction(d));
+      dfm.store.dispatch(addSetCurrentTokenAction(d.id));
 
       dfm.store.getState().geometry.filter((room) => {
         return d3.polygonContains(room.vertices, [d.x, d.y]);
@@ -52,6 +52,9 @@ dndFowMap.tacticalMap = (function(dfm) {
   const tokenClass = (d) =>
     `token ${d.alignment}${d.defeated?' defeated':''}`;
 
+  const getImageSrc = (tokenRef) =>
+    `url(${tokenSet().filter((t) => t.id === tokenRef)[0].src})`;
+
   const updateCombatants = () => {
     const tokens = d3.select('#game-board').selectAll('.token')
         .data(
@@ -62,7 +65,7 @@ dndFowMap.tacticalMap = (function(dfm) {
     tokens.enter()
         .append('div')
         .attr('class', tokenClass)
-        .style('background-image', (d) => `url(${tokenSet()[d.tokenRef]})`)
+        .style('background-image', (d) => getImageSrc(d.tokenRef))
         .style('width', (d) =>
           `${d.size === 'large' ? 2 * squareWidth() : squareWidth()}px`)
         .style('height', (d) =>
@@ -81,6 +84,7 @@ dndFowMap.tacticalMap = (function(dfm) {
   const printCombatants = () => {
     console.log(JSON.stringify(dfm.store.getState().combatants, null, 4));
   };
+
 
   dfm.store.subscribe(()=>{
     updateFog(); // todo: this should be handled somewhere else

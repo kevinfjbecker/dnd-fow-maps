@@ -25,7 +25,6 @@ const {
   updateCombatants,
 } = dndFowMap.tacticalMap;
 
-// todo: fix these--still cheating
 // todo: make a model view dispatch as an update
 const getCurrentRoom = dndFowMap.stateUtilities.getCurrentRoom;
 const getCurrentToken = dndFowMap.stateUtilities.getCurrentToken;

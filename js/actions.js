@@ -11,7 +11,7 @@ dndFowMap.actions = (function(dfm) {
   const SET_CURRENT_ROOM_NAME = 'SET_CURRENT_ROOM_NAME';
   const SET_CURRENT_TOKEN = 'SET_CURRENT_TOKEN';
   const SET_EDITOR_STATE_READY = 'SET_EDITOR_STATE_READY';
-  const SHOW_ROOM_WITH_COMBATANTS = 'SHOW_ROOM_WITH_COMBATANTS';
+  const SHOW_ROOMS_WITH_COMBATANTS = 'SHOW_ROOMS_WITH_COMBATANTS';
   const TOGGLE_PATHS = 'TOGGLE_PATHS';
 
   // ///////////////////////////////////////////////////// action generators //
@@ -75,10 +75,10 @@ dndFowMap.actions = (function(dfm) {
     type: SET_EDITOR_STATE_READY,
   });
 
-  const addShowRoomWithCombatantsAction = (roomName, shown) => ({
-    type: SHOW_ROOM_WITH_COMBATANTS,
-    roomName,
-    shown,
+  const addShowRoomsWithCombatantsAction = (rooms, combatants) => ({
+    type: SHOW_ROOMS_WITH_COMBATANTS,
+    rooms,
+    combatants,
   });
 
   const addTogglePathsAction = () => ({
@@ -98,7 +98,7 @@ dndFowMap.actions = (function(dfm) {
     SET_CURRENT_ROOM_NAME,
     SET_CURRENT_TOKEN,
     SET_EDITOR_STATE_READY,
-    SHOW_ROOM_WITH_COMBATANTS,
+    SHOW_ROOMS_WITH_COMBATANTS,
     TOGGLE_PATHS,
     addEndEditAction,
     addInitializeNewRoomAction,
@@ -111,7 +111,7 @@ dndFowMap.actions = (function(dfm) {
     addSetCurrentRoomNameAction,
     addSetCurrentTokenAction,
     addSetEditorStateReadyAction,
-    addShowRoomWithCombatantsAction,
+    addShowRoomsWithCombatantsAction,
     addTogglePathsAction,
   };
 }(dndFowMap));

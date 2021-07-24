@@ -202,7 +202,7 @@ dndFowMap.staticState.geometry = [
   {
     "name": "x.Corridor.47.48",
     "isComplete": true,
-    "isExplored": false,
+    "isExplored": true,
     "vertices": [
       [
         1767,
@@ -1142,7 +1142,7 @@ dndFowMap.staticState.geometry = [
   {
     "name": "48.GardenGalleries.a",
     "isComplete": true,
-    "isExplored": false,
+    "isExplored": true,
     "vertices": [
       [
         1758,
@@ -1198,7 +1198,7 @@ dndFowMap.staticState.geometry = [
   {
     "name": "48.GardenGalleries.b",
     "isComplete": true,
-    "isExplored": false,
+    "isExplored": true,
     "vertices": [
       [
         1768,

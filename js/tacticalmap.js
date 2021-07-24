@@ -7,8 +7,8 @@ dndFowMap.tacticalMap = (function(dfm) {
   const tokenSet = () => dfm.store.getState().tokenSet;
   const addMoveTokenAction = dfm.actions.addMoveTokenAction;
   const addSetCurrentTokenAction = dfm.actions.addSetCurrentTokenAction;
-  const addShowRoomWithCombatantsAction =
-    dfm.actions.addShowRoomWithCombatantsAction;
+  const addShowRoomsWithCombatantsAction =
+    dfm.actions.addShowRoomsWithCombatantsAction;
 
   /* eslint-disable-next-line require-jsdoc */ // doesn't work with arrow fn
   function drag() {
@@ -35,12 +35,20 @@ dndFowMap.tacticalMap = (function(dfm) {
       // todo: THREE dispatches, really?
       dfm.store.dispatch(addSetCurrentTokenAction(d.id));
 
-      dfm.store.getState().geometry.filter((room) => {
-        return d3.polygonContains(room.vertices, [d.x, d.y]);
-      }).forEach((room) => {
-        // todo: THREE dispatches, really?
-        dfm.store.dispatch(addShowRoomWithCombatantsAction(room.name, true));
-      });
+      const rooms = dfm.store.getState().geometry
+          .filter((room) => {
+            return d3.polygonContains(room.vertices, [d.x, d.y]);
+          });
+      const combatants = dfm.store.getState().combatants
+          .filter((combatant) => {
+            return rooms
+                .map((room) =>
+                  d3.polygonContains(room.vertices, [combatant.x, combatant.y]))
+                .some((b) => true);
+          })
+          .map((combatant) => combatant.id);
+      roomIds = rooms.map((room) => room.id);
+      dfm.store.dispatch(addShowRoomsWithCombatantsAction(roomIds, combatants));
     };
 
     return d3.drag()

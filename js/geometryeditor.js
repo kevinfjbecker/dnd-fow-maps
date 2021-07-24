@@ -94,8 +94,6 @@ dndFowMap.geometryEditor = (function(dfm) {
     paths.exit().remove();
   };
 
-  updatePaths(); // todo: move to an init script
-
   const togglePaths = () => {
     dfm.store.dispatch(dfm.actions.addTogglePathsAction());
   };
@@ -151,8 +149,6 @@ dndFowMap.geometryEditor = (function(dfm) {
 
     handles.exit().remove();
   };
-
-  updateVertexHandles(); // todo: move to an init script
 
   return {
     printGeometry: printGeometry,

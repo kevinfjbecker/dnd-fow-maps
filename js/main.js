@@ -28,3 +28,11 @@ const {
 // todo: make a model view dispatch as an update
 const getCurrentRoom = dndFowMap.stateUtilities.getCurrentRoom;
 const getCurrentToken = dndFowMap.stateUtilities.getCurrentToken;
+
+const init = () => {
+  dndFowMap.geometryEditor.updatePaths();
+  dndFowMap.geometryEditor.updateVertexHandles();
+  dndFowMap.tacticalMap.updateCombatants(); // todo: move to an init script
+};
+
+init();

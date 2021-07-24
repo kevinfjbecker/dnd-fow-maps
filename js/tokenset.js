@@ -1,42 +1,42 @@
 dndFowMap.staticState.tokenSet = [
   {
     'name': 'ascydiaadderbanklin',
-    'src': 'img/AscydiaAdderBanklin.png',
+    'src': 'https://www.dndbeyond.com/Content/Skins/Waterdeep/images/characters/default-avatar-builder.png',
     'id': '54b5e05d-0e83-4085-ba48-eff951e925f5',
   },
   {
     'name': 'belvias',
-    'src': 'img/Belvias.jpeg',
+    'src': 'https://www.dndbeyond.com/avatars/15619/537/1581111423-27483125.jpeg',
     'id': '2dc37dd3-ac78-4320-8dbb-236904074a4f',
   },
   {
     'name': 'biggschunks',
-    'src': 'img/BiggsChunks.jpeg',
+    'src': 'https://www.dndbeyond.com/avatars/17/193/636377838017798855.jpeg',
     'id': 'd1988fd3-3b5c-4c12-b113-298c5d0afc6b',
   },
   {
     'name': 'erkytimbers',
-    'src': 'img/ErkyTimbers.png',
+    'src': 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6557/537/35/35/636987985254139481.png',
     'id': '1b1c8655-9cbe-4cb3-95b5-506ab785f126',
   },
   {
     'name': 'florry',
-    'src': 'img/Florry.jpeg',
+    'src': 'https://www.dndbeyond.com/avatars/15619/576/1581111423-36028354.jpeg',
     'id': 'ee0e79ce-6b98-492d-bc03-ade3ee934375',
   },
   {
     'name': 'moreale',
-    'src': 'img/MoreAle.png',
+    'src': 'https://www.dndbeyond.com/avatars/17/969/636378926856690034.png',
     'id': '5b93c2c8-7a1b-41fd-80fc-63d6baa06522',
   },
   {
     'name': 'professorblue',
-    'src': 'img/ProfessorBlue.jpeg',
+    'src': 'https://www.dndbeyond.com/avatars/17/924/636378852753221520.jpeg',
     'id': 'fa08cef0-ad64-4044-8ecc-2b9d2c164e92',
   },
   {
     'name': 'slammer',
-    'src': 'img/SLAMMER.jpeg',
+    'src': 'https://www.dndbeyond.com/avatars/17/468/636377891490355427.jpeg',
     'id': 'e718ed48-da1b-41fc-9286-0c3b89b92d1e',
   },
   {

@@ -19,12 +19,10 @@ dndFowMap.reducer = (function(dfm) {
         }
         return state;
 
-      case dfm.actions.SHOW_ROOM_WITH_COMBATANTS:
-        const room = dfm.store.getState().geometry // todo: fix -- impure?
-            .filter((r) => r.name === action.roomName)[0];
-        return state.map((combatant)=>{
-          if (d3.polygonContains(room.vertices, [combatant.x, combatant.y])) {
-            combatant.hidden = !action.shown;
+      case dfm.actions.SHOW_ROOMS_WITH_COMBATANTS:
+        return state.map((combatant) => {
+          if (action.combatants.includes(combatant.id)) {
+            combatant.hidden = false;
           }
           return combatant;
         });
@@ -130,10 +128,10 @@ dndFowMap.reducer = (function(dfm) {
         });
 
 
-      case dfm.actions.SHOW_ROOM_WITH_COMBATANTS:
+      case dfm.actions.SHOW_ROOMS_WITH_COMBATANTS:
         return state.map((room) => {
-          if (room.name === action.roomName) {
-            room.isExplored = action.shown;
+          if (action.rooms.includes(room.id)) {
+            room.isExplored = true;
           }
           return room;
         });

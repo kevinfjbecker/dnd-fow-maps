@@ -87,8 +87,6 @@ dndFowMap.tacticalMap = (function(dfm) {
     tokens.exit().remove();
   };
 
-  updateCombatants(); // todo: move to an init script
-
   const printCombatants = () => {
     console.log(JSON.stringify(dfm.store.getState().combatants, null, 4));
   };

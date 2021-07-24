@@ -141,7 +141,6 @@ dndFowMap.reducer = (function(dfm) {
     }
   };
 
-  // todo: do something about this.
   return function(state = {}, action) {
     state.combatants = combatantsReducer(state.combatants, action);
     state.currentRoom = currentRoomReducer(state.currentRoom, action);

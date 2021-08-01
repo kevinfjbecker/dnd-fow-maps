@@ -48,6 +48,7 @@ dndFowMap.tacticalMap = (function(dfm) {
           })
           .map((combatant) => combatant.id);
       roomIds = rooms.map((room) => room.id);
+      // todo: THREE dispatches, really?
       dfm.store.dispatch(addShowRoomsWithCombatantsAction(roomIds, combatants));
     };
 

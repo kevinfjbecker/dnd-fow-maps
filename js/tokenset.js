@@ -40,6 +40,26 @@ dndFowMap.staticState.tokenSet = [
     'id': 'e718ed48-da1b-41fc-9286-0c3b89b92d1e',
   },
   {
+    'name': 'belak',
+    'src': 'https://www.dndbeyond.com/avatars/12746/393/637357523509675063.jpeg',
+    'id': '8b154df6-d184-4e76-b493-32e3368d6386',
+  },
+  {
+    'name': 'giantfrog',
+    'src': 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/520/35/35/636376321051878548.jpeg',
+    'id': 'c5cd776e-4b15-46a3-becb-1f05912e85b1',
+  },
+  {
+    'name': 'sirbraford',
+    'src': 'https://www.dndbeyond.com/avatars/17/429/636377887024636048.jpeg',
+    'id': 'a6b47dfd-9485-4d72-b10f-571f246079ef',
+  },
+  {
+    'name': 'sharwynhucrele',
+    'src': 'https://www.dndbeyond.com/avatars/10845/662/637266685562647414.jpeg',
+    'id': 'dbe4bd72-5c7b-4741-bd90-4f87bd31661b',
+  },
+  {
     'name': 'twigblight',
     'src': 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/463/35/35/636376286997146437.jpeg',
     'id': '90b8ffcd-a75a-4430-a189-657d40447440',

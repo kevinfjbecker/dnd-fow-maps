@@ -44,7 +44,7 @@ dndFowMap.tacticalMap = (function(dfm) {
             return rooms
                 .map((room) =>
                   d3.polygonContains(room.vertices, [combatant.x, combatant.y]))
-                .some((b) => true);
+                .some((b) => b === true);
           })
           .map((combatant) => combatant.id);
       roomIds = rooms.map((room) => room.id);

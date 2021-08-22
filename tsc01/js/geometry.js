@@ -147,7 +147,7 @@ dndFowMap.staticState.geometry = [
   {
     "name": "6.OldApproach",
     "isComplete": true,
-    "isExplored": false,
+    "isExplored": true,
     "vertices": [
       [
         1403,
@@ -178,7 +178,7 @@ dndFowMap.staticState.geometry = [
   {
     "name": "7.GalleryofForlornNotes",
     "isComplete": true,
-    "isExplored": false,
+    "isExplored": true,
     "vertices": [
       [
         1149,
@@ -1534,6 +1534,172 @@ dndFowMap.staticState.geometry = [
       [
         1344,
         1037
+      ]
+    ]
+  },
+  {
+    "name": "8.PressurePlate",
+    "isComplete": true,
+    "isExplored": true,
+    "vertices": [
+      [
+        1003,
+        1705
+      ],
+      [
+        1003,
+        1606
+      ],
+      [
+        1147,
+        1606
+      ],
+      [
+        1146,
+        1705
+      ]
+    ]
+  },
+  {
+    "name": "9.DragonRiddle",
+    "isComplete": true,
+    "isExplored": true,
+    "vertices": [
+      [
+        857,
+        1774
+      ],
+      [
+        854,
+        1514
+      ],
+      [
+        869,
+        1486
+      ],
+      [
+        909,
+        1461
+      ],
+      [
+        954,
+        1461
+      ],
+      [
+        985,
+        1478
+      ],
+      [
+        996,
+        1494
+      ],
+      [
+        1005,
+        1528
+      ],
+      [
+        1001,
+        1772
+      ]
+    ]
+  },
+  {
+    "name": "10.HonorGuard",
+    "isComplete": true,
+    "isExplored": true,
+    "vertices": [
+      [
+        496,
+        1737
+      ],
+      [
+        497,
+        1495
+      ],
+      [
+        856,
+        1493
+      ],
+      [
+        857,
+        1734
+      ]
+    ]
+  },
+  {
+    "name": "11.SecretRoom.a",
+    "isComplete": true,
+    "isExplored": false,
+    "vertices": [
+      [
+        632,
+        1848
+      ],
+      [
+        629,
+        1736
+      ],
+      [
+        724,
+        1736
+      ],
+      [
+        722,
+        1847
+      ]
+    ]
+  },
+  {
+    "name": "11.SecretRoom.b",
+    "isComplete": true,
+    "isExplored": false,
+    "vertices": [
+      [
+        311,
+        1841
+      ],
+      [
+        313,
+        1779
+      ],
+      [
+        351,
+        1778
+      ],
+      [
+        351,
+        1802
+      ],
+      [
+        628,
+        1798
+      ],
+      [
+        630,
+        1839
+      ]
+    ]
+  },
+  {
+    "name": "12.TombofaFailedDragonpriest",
+    "isComplete": true,
+    "isExplored": false,
+    "vertices": [
+      [
+        266,
+        1778
+      ],
+      [
+        266,
+        1460
+      ],
+      [
+        499,
+        1459
+      ],
+      [
+        502,
+        1778
       ]
     ]
   }

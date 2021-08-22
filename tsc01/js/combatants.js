@@ -1,25 +1,17 @@
 dndFowMap.staticState.combatants = [
   {
-    "name": "AscydiaAdderBanklin",
-    "alignment": "friendly",
-    "x": 1841,
-    "y": 1442,
-    "hidden": false,
-    "tokenRef": "ascydiaadderbanklin"
-  },
-  {
     "name": "Belvias",
     "alignment": "friendly",
-    "x": 387,
-    "y": 497,
+    "x": 645,
+    "y": 1588,
     "hidden": false,
     "tokenRef": "belvias"
   },
   {
     "name": "BiggsChunks",
     "alignment": "friendly",
-    "x": 549,
-    "y": 440,
+    "x": 678,
+    "y": 1622,
     "hidden": false,
     "defeated": false,
     "tokenRef": "biggschunks"
@@ -27,34 +19,18 @@ dndFowMap.staticState.combatants = [
   {
     "name": "Florry",
     "alignment": "friendly",
-    "x": 522,
-    "y": 468,
+    "x": 750,
+    "y": 1622,
     "hidden": false,
     "tokenRef": "florry"
   },
   {
-    "name": "MoreAle",
-    "alignment": "friendly",
-    "x": 430,
-    "y": 388,
-    "hidden": false,
-    "tokenRef": "moreale"
-  },
-  {
     "name": "ProfessorBlue",
     "alignment": "friendly",
-    "x": 397,
-    "y": 368,
+    "x": 716,
+    "y": 1587,
     "hidden": false,
     "tokenRef": "professorblue"
-  },
-  {
-    "name": "SLAMMER",
-    "alignment": "friendly",
-    "x": 390,
-    "y": 460,
-    "hidden": false,
-    "tokenRef": "slammer"
   },
   {
     "alignment": "boss",
@@ -200,14 +176,6 @@ dndFowMap.staticState.combatants = [
     "y": 456.6463734052277,
     "defeated": true,
     "tokenRef": "goblin"
-  },
-  {
-    "alignment": "friendly",
-    "hidden": false,
-    "name": "ErkyTimbers.0",
-    "x": 556.245297215952,
-    "y": 473.058690744921,
-    "tokenRef": "erkytimbers"
   },
   {
     "alignment": "hostile",
@@ -367,6 +335,15 @@ dndFowMap.staticState.combatants = [
     "name": "goblin.5",
     "x": 661.1202180968606,
     "y": 408.7378423947107,
+    "defeated": true
+  },
+  {
+    "alignment": "hostile",
+    "hidden": false,
+    "tokenRef": "quasit",
+    "name": "quasit.0",
+    "x": 786.3775017253278,
+    "y": 1585.8626562380186,
     "defeated": true
   }
 ];

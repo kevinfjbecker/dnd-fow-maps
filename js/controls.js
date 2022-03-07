@@ -4,9 +4,6 @@
 dndFowMap.controls = (function(dfm) {
   // //////////////////////////////////////////////////////////////// Import //
 
-  // const updateCombatants = dfm.tacticalMap.updateCombatants;
-  // const updatePaths = dfm.geometryEditor.updatePaths;
-  // const updateVertexHandles = dfm.geometryEditor.updateVertexHandles;
   const store = dfm.store;
   const tokenSet = dfm.store.getState().tokenSet;
   const addSetCurrentRoomAction = dfm.actions.addSetCurrentRoomAction;
@@ -20,6 +17,16 @@ dndFowMap.controls = (function(dfm) {
 
   // ///////////////////////////////////////////////////////// Form Controls //
 
+  const saveGeometry = () => {
+    const geometryKey = dfm.store.getState().mapDetails.geometryKey;
+    dfm.saveToLocalStorage(geometryKey, dfm.store.getState().geometry);
+  };
+
+  const saveCombatants = () => {
+    const combatantsKey = dfm.store.getState().mapDetails.combatantsKey;
+    dfm.saveToLocalStorage(combatantsKey, dfm.store.getState().combatants);
+  };
+
   const hideControls = () => {
     document.querySelector('#control-panel').setAttribute('hidden', true);
   };
@@ -29,6 +36,8 @@ dndFowMap.controls = (function(dfm) {
   };
 
   // ///////////////////////////////////////////////////// Element Selection //
+
+  // NB: Token Selection is in Token Dragging (as of writing)
 
   const getRoomHit = (xy) => {
     return store.getState().geometry.filter((room) =>
@@ -47,21 +56,14 @@ dndFowMap.controls = (function(dfm) {
     const id = store.getState().currentRoom;
     const room = store.getState().geometry.filter((r) => r.id === id)[0];
     document.getElementById('room-name').value = room && room.name || '';
-    // updatePaths(); // cruft
-    // updateVertexHandles(); // cruft
-    // updateCombatants(); // cruft
   });
 
-  // NB: Token Selection is in Token Dragging (as of writing)
-
-  // //////////////////////////////////////////////////// Wandering Monsters //
+  // ////////////////////////////////////////////// Populate Monsters & NPCs //
 
   // assumes the naming pattern: {name}.{index}
   const nextMonsterNameSuffix = (name) =>
     store.getState().combatants
         .filter((c) => c.name.split('.')[0] === name).length;
-
-  // ////////////////////////////////////////////// Populate Monsters & NPCs //
 
   const getTokenIdByName = (name) =>
     tokenSet.filter((t) => t.name === name)[0].id;
@@ -88,6 +90,8 @@ dndFowMap.controls = (function(dfm) {
     addMonsterToCurrentRoom,
     hideControls,
     removeCurrentToken,
+    saveCombatants,
+    saveGeometry,
     showControls,
   };
 })(dndFowMap);

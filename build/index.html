@@ -37,11 +37,11 @@
         <button id=toggle-paths-btn onclick="togglePaths()">Paths</button>
         <button id=toggle-fow-btn onclick="toggleFogOfWar()">Fog of War</button>
         <button id=save-geometry-btn
-            onclick="console.save(dndFowMap.store.getState().geometry, 'geometry.js', 'dndFowMap.staticState.geometry')">
+            onclick="dndFowMap.controls.saveGeometry()">
             Save Geometry
         </button>
         <button id=save-combatants-btn
-            onclick="console.save(dndFowMap.store.getState().combatants, 'combatants.js', 'dndFowMap.staticState.combatants')">
+            onclick="dndFowMap.controls.saveCombatants()">
             Save Combatants
         </button>
     </div>
@@ -58,10 +58,10 @@
     <!-- state tree -->
     <script src="js/state.js"></script>
     <!-- augment the state tree with these -->
-    <script src="js/combatants.js"></script>
+    <script src="js/mapdetails.js"></script>
     <script src="js/geometry.js"></script>
     <script src="js/tokenset.js"></script>
-    <script src="js/mapdetails.js"></script>
+    <script src="js/combatants.js"></script>
 
     <!-- Pub-sub -->
     <!-- define: actions, store and reducers -->
